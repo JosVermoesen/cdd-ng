@@ -7,6 +7,7 @@ import { TabsetComponent } from 'ngx-bootstrap/tabs';
 
 // import * as moment from 'moment';
 import { format } from 'date-fns';
+import { constantVariables } from '../../../appconstants';
 
 import { DomService } from '../../../services/dom.service';
 import { DomEntry } from '../../../models/domEntry';
@@ -22,8 +23,7 @@ import { IbanCheck } from 'src/app/functions/ibancheck';
 export class DomEntryComponent implements OnInit {
   @ViewChild('staticTabs') staticTabs!: TabsetComponent;
   bsModalRef!: BsModalRef;
-  cddVersion = '16.2.0';
-
+  cddVersion = constantVariables.version;
   warning!: string;
   domJson!: DomEntry[];
 
