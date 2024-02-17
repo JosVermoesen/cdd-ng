@@ -22,7 +22,7 @@ import { IbanCheck } from 'src/app/functions/ibancheck';
 export class DomEntryComponent implements OnInit {
   @ViewChild('staticTabs') staticTabs!: TabsetComponent;
   bsModalRef!: BsModalRef;
-  version: string = '16.2.0';
+  cddVersion = '16.2.0';
 
   warning!: string;
   domJson!: DomEntry[];
