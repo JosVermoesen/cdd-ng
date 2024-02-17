@@ -7,7 +7,7 @@ Your data is stored as json files inside the localStorage of the browser you are
 
 ## Getting started for developers
 
-- [Install NodeJS 18.18.0](https://nodejs.org/). Hint: eventually install and use [nvm](https://medium.com/@Joachim8675309/installing-node-js-with-nvm-4dc469c977d9) for easy installing and/or switching between node versions
+- [Install NodeJS](https://nodejs.org/). Hint: eventually install and use [nvm](https://medium.com/@Joachim8675309/installing-node-js-with-nvm-4dc469c977d9) for easy installing and/or switching between node versions
 - Clone this repository: `git clone https://github.com/JosVermoesen/ngb-cdd.git`.
 - Run `npm install` inside the project root.
 - Run `ng serve` in a terminal from the project root.
@@ -15,9 +15,9 @@ Your data is stored as json files inside the localStorage of the browser you are
 
 ## Development Tools used for this app on march 2023
 
-- [NodeJS(v18.18.0)](https://nodejs.org/)
+- [NodeJS](https://nodejs.org/)
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [Angular CLI(v16.2.8)](https://www.npmjs.com/package/@angular/cli): `npm i -g @angular/cli@16`
+- [Angular CLI(v17)](https://www.npmjs.com/package/@angular/cli): `npm i -g @angular/cli@17`
 
 ## NPM packages used for this app
 
@@ -74,11 +74,11 @@ In angular.json, to avoid CommonJs warnings, add __allowedCommonJsDependencies__
             ...
 ```
 
-## Updating to latest Angular 16
+## Updating to latest Angular 17
 
-This app is now on Angular 16. Before starting an update, always commit first any valid open changes
+This app is now on Angular 17. Before starting an update, always commit first any valid open changes
 
 update to latest Angular 16:
-`ng update @angular/cli@16 @angular/core@16`
+`ng update @angular/cli@17 @angular/core@17`
 
 Follow the instructions eventualy to fixes and test good working app
