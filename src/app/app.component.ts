@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { LanguageService } from './services/language.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  title = 'cdd-ng';
+export class AppComponent implements OnInit {
+  constructor(private ls: LanguageService) {}
+
+  ngOnInit() {
+    this.ls.setInitialAppLanguage();
+  }
 }
