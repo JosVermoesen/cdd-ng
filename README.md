@@ -1,27 +1,84 @@
-# CddNg
+# Creditors Direct Debit - Domiciliëringen Schuldeiser
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.12.
+## Getting started for users
 
-## Development server
+You can use directly on [demo](https://cdd.vsoft.be)
+Your data is stored as json files inside the localStorage of the browser you are using. With jsZip you can zip and transfert your data to other browsers and/or other computers
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Getting started for developers
 
-## Code scaffolding
+- [Install NodeJS 18.18.0](https://nodejs.org/). Hint: eventually install and use [nvm](https://medium.com/@Joachim8675309/installing-node-js-with-nvm-4dc469c977d9) for easy installing and/or switching between node versions
+- Clone this repository: `git clone https://github.com/JosVermoesen/ngb-cdd.git`.
+- Run `npm install` inside the project root.
+- Run `ng serve` in a terminal from the project root.
+- Profit. :tada:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Development Tools used for this app on march 2023
 
-## Build
+- [NodeJS(v18.18.0)](https://nodejs.org/)
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Angular CLI(v16.2.8)](https://www.npmjs.com/package/@angular/cli): `npm i -g @angular/cli@16`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## NPM packages used for this app
 
-## Running unit tests
+- [bootstrap(v5.2.3)](https://www.npmjs.com/package/bootstrap): `npm i bootstrap@5`
+- [ngx-bootstrap](https://www.npmjs.com/package/ngx-bootstrap): `npm i ngx-bootstrap@11` (or greater)
+- [file-saver](https://www.npmjs.com/package/file-saver): `npm i file-saver`
+- [@types/file-saver](https://www.npmjs.com/package/@types/file-saver): `npm i @types/file-saver`
+- [jszip](https://www.npmjs.com/package/jszip): `npm i jszip`
+- [date-fns](https://www.npmjs.com/package/date-fns): `npm i date-fns`
+- [@ngx-translate/core](https://www.npmjs.com/package/@ngx-translate/core): `npm i @ngx-translate/core`
+- [@ngx-translate/http-loader](https://www.npmjs.com/package/@ngx-translate/http-loader): `npm i @ngx-translate/http-loader`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- install all packages in one commandline: `npm i bootstrap ngx-bootstrap file-saver @types/file-saver jszip date-fns @ngx-translate/core @ngx-translate/http-loader`
 
-## Running end-to-end tests
+## styles.css
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+For use of bootstrap, add into styles.css:
 
-## Further help
+```bash
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~ngx-bootstrap//datepicker//bs-datepicker.css';
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Important1: tsconfig.json
+
+Before building, add paths for jszip in compilerOptions AND set resolveJsonModule to 'true' :
+
+```bash
+"compilerOptions": {
+    "paths": {
+      "jszip": [
+        "node_modules/jszip/dist/jszip.min.js"
+      ]
+    },
+    "baseUrl": "./",
+    ...
+    "resolveJsonModule": true,
+    ...
+```
+
+## warnings for file-saver
+
+In angular.json, to avoid CommonJs warnings, add __allowedCommonJsDependencies__ in the options section for __file-saver, moment and jszip__:
+
+```bash
+"builder": "@angular-devkit/build-angular:browser",          
+            ...
+            "options": {
+            "allowedCommonJsDependencies": [
+              "file-saver",
+              "moment",
+              "jszip",              
+            ],
+            ...
+```
+
+## Updating to latest Angular 16
+
+This app is now on Angular 16. Before starting an update, always commit first any valid open changes
+
+update to latest Angular 16:
+`ng update @angular/cli@16 @angular/core@16`
+
+Follow the instructions eventualy to fixes and test good working app
