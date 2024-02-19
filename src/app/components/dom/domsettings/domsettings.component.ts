@@ -6,7 +6,8 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 
 import { DomCompany } from './../../../models/domCompany';
 import { TranslateService } from '@ngx-translate/core';
-import { IbanCheck } from 'src/app/functions/ibancheck';
+import { IbanCheck } from '../../../functions/ibancheck';
+import { NinCheck } from '../../../functions/nincheck';
 
 @Component({
   selector: 'app-domsettings',
@@ -16,6 +17,7 @@ import { IbanCheck } from 'src/app/functions/ibancheck';
 export class DomSettingsComponent implements OnInit {
   title!: string;
   closeBtnName!: string;
+  maleOrFemale!: string;
 
   domSettingsForm!: FormGroup;
   domSettings!: DomCompany;
@@ -100,6 +102,17 @@ export class DomSettingsComponent implements OnInit {
       this.onSaved.next(true);
       this.bsModalRef.hide();
     }
+  }
+
+  onTest() {
+    const resultString = NinCheck(
+      '61022540345',
+      1961,
+      this.maleOrFemale,
+      'ExtendedInfo'
+    );
+    console.log('resultString: ', resultString);
+    console.log('this.maleOrFemale: ', this.maleOrFemale);
   }
 
   onRead() {

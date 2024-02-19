@@ -1,60 +1,65 @@
 export function NinCheck(
   ninString: string,
   birthYear: number,
-  returnFormatted: boolean
-) {
+  gender: string,
+  returnText: 'Formatted' | 'ExtendedInfo' | 'NinOnly'
+): string {
   const ninLength = ninString.length;
+  let stringToReturn = '';
   if (ninLength !== 11) {
-    return 'invalid';
-  }
-
-  let ninToCheck = ninString.substring(0, 9);
-
-  if (birthYear < 2000) {
-    // nothing
+    return 'invalid: should be 11 characters long';
   } else {
-    ninToCheck = '2' + ninToCheck;
-  }
+    let ninToCheck = ninString.substring(0, 9);
+    if (birthYear < 2000) {
+    } else {
+      ninToCheck = '2' + ninToCheck;
+    }
 
-  let dPip: number;
-  let dPip2: number;
-  let calcPip: number;
+    let dPip: number;
+    let dPip2: number;
+    let dPip3: number;
+    let calcPip: number;
 
-  switch (ninLength) {
-    case 11:
-      dPip = Number(ninToCheck);
-      break;
+    dPip = Number(ninToCheck);
+    dPip2 = Number(ninString.substring(9));
+    dPip3 = Number(ninString.substring(6, 9));
+    if (dPip3 & 1) {
+      // ODD
+      gender = 'M';
+    } else {
+      // EVEN
+      gender = 'F';
+    }
+    calcPip = dPip % 97;
+    // console.log(dPip, dPip2, calcPip, 97 - calcPip);
 
-    default:
-      return 'invalid';
-  }
+    // check if the pip is correct
+    if (97 - calcPip === dPip2) {
+      // ok
+      switch (returnText) {
+        case 'NinOnly':
+          stringToReturn = ninString;
+          break;
 
-  // first check if rekOld is valid
-  dPip = Number(ninToCheck);
-  dPip2 = Number(ninString.substring(9));
-  calcPip = dPip % 97;
+        case 'Formatted':
+          // TODO
+          stringToReturn = ninString;
+          break;
 
-  if (ninString.substring(9, 2) === '00') {
-    return 'invalid';
-  } else if (calcPip === 0 && ninString.substring(9, 2) === '97') {
-    // ok
-  } else if (calcPip === dPip2) {
-    // ok
-  } else {
-    return 'invalid';
-  }
-
-  // then check if sepa version is needed
-
-  if (!returnFormatted) {
-    return ninString;
-  } else {
-    /* rekOld =
-      rekOld.substring(0, 3) +
-      ' ' +
-      rekOld.substring(3, 10) +
-      ' ' +
-      rekOld.substring(10);
-    return rekOld; */
+        case 'ExtendedInfo':
+          console.log(dPip3);
+          if (gender === 'M') {
+            stringToReturn =
+              (dPip3 + 1) / 2 + 'th MALE born on that day: ' + ninString;
+          } else {
+            if (gender === 'F') {
+              stringToReturn = 'FEMALE: ' + ninString;
+            }
+          }          
+          break;
+      }
+      return stringToReturn;
+    }
+    return 'invalid?'; // Add this return statement to fix the problem
   }
 }
