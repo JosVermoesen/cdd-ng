@@ -1,7 +1,7 @@
 export function NinCheck(
   ninString: string,
-  birthYear: number,
-  gender: string,
+  yearNow: number,
+  gender: 'M' | 'F' | 'W',
   returnText: 'Formatted' | 'ExtendedInfo' | 'NinOnly'
 ): string {
   const ninLength = ninString.length;
@@ -10,15 +10,20 @@ export function NinCheck(
     return 'invalid: should be 11 characters long';
   } else {
     let ninToCheck = ninString.substring(0, 9);
-    if (birthYear < 2000) {
-    } else {
-      ninToCheck = '2' + ninToCheck;
-    }
 
+    let dPip0: number;
     let dPip: number;
     let dPip2: number;
     let dPip3: number;
     let calcPip: number;
+
+    dPip0 = Number(ninString.substring(0, 2));
+    console.log(dPip0);
+    if (yearNow - dPip0 < 0) {
+    } else {
+      ninToCheck = '2' + ninToCheck;
+      console.log('born after millenium');
+    }
 
     dPip = Number(ninToCheck);
     dPip2 = Number(ninString.substring(9));
@@ -55,11 +60,11 @@ export function NinCheck(
             if (gender === 'F') {
               stringToReturn = 'FEMALE: ' + ninString;
             }
-          }          
+          }
           break;
       }
       return stringToReturn;
     }
-    return 'invalid?'; // Add this return statement to fix the problem
+    return 'invalid: number does not match'; // Add this return statement to fix the problem
   }
 }

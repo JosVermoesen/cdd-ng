@@ -8,6 +8,7 @@ import { DomCompany } from './../../../models/domCompany';
 import { TranslateService } from '@ngx-translate/core';
 import { IbanCheck } from '../../../functions/ibancheck';
 import { NinCheck } from '../../../functions/nincheck';
+import { format } from 'date-fns';
 
 @Component({
   selector: 'app-domsettings',
@@ -104,15 +105,11 @@ export class DomSettingsComponent implements OnInit {
     }
   }
 
-  onTest() {
-    const resultString = NinCheck(
-      '61022540345',
-      1961,
-      this.maleOrFemale,
-      'ExtendedInfo'
-    );
-    console.log('resultString: ', resultString);
-    console.log('this.maleOrFemale: ', this.maleOrFemale);
+  onNinTest() {
+    // const shortYear = Number(format(new Date(), 'yy'));
+    // const resultString = NinCheck('61022540345', shortYear, 'W', 'ExtendedInfo');
+    const resultString = this.ninMatchValidator('61022540345');
+    console.log('result: ', resultString);
   }
 
   onRead() {
@@ -152,6 +149,17 @@ export class DomSettingsComponent implements OnInit {
       return true;
     } else {
       console.log('TODO: message iban invalid ');
+      return false;
+    }
+  }
+
+  ninMatchValidator(ninToCheck: string): boolean {
+    const shortYear = Number(format(new Date(), 'yy'));
+    const ninValid = NinCheck(ninToCheck, shortYear, 'W', 'NinOnly');
+    if (ninValid == ninToCheck) {
+      return true;
+    } else {
+      console.log(ninValid);
       return false;
     }
   }
