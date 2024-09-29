@@ -2,6 +2,8 @@
 
 ## Getting started for users
 
+![CDD](img/cdd.png)
+
 You can use directly on [demo site](https://cdd.vsoft.be)
 Your data is stored as json files inside the localStorage of the browser you are using. With jsZip you can zip and transfert your data to other browsers and/or other computers
 
