@@ -7,19 +7,20 @@
 You can use directly on [demo site](https://cdd.vsoft.be)
 Your data is stored as json files inside the localStorage of the browser you are using. With jsZip you can zip and transfert your data to other browsers and/or other computers
 
+## Development Tools used for this app on march 2023
+
+- [NodeJS](https://nodejs.org/)
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Angular CLI(v17)](https://www.npmjs.com/package/@angular/cli): `npm i -g @angular/cli@17`
+
 ## Getting started for developers
 
 - [Install NodeJS](https://nodejs.org/). Hint: eventually install and use [nvm](https://medium.com/@Joachim8675309/installing-node-js-with-nvm-4dc469c977d9) for easy installing and/or switching between node versions
 - Clone this repository: `git clone https://github.com/JosVermoesen/ngb-cdd.git`.
 - Run `npm install` inside the project root.
 - Run `ng serve` in a terminal from the project root.
+- If scripts are disabled, open Powershell as administrator and run `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser` first!
 - Profit. :tada:
-
-## Development Tools used for this app on march 2023
-
-- [NodeJS](https://nodejs.org/)
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [Angular CLI(v17)](https://www.npmjs.com/package/@angular/cli): `npm i -g @angular/cli@17`
 
 ## NPM packages used for this app
 
