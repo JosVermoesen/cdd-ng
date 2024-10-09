@@ -65,7 +65,7 @@
     "GeneratedXMLLabel": "Gegenereerde XML",
     "DescriptionLabel": "Omschrijving",
     "ReplaceEntriesCheckbox": "Eerst actieve lijst leegmaken",
-    "DeleteAfterLoadingCheckbox": "Verwijder groepgegevens na inladen",
+    "DeleteAfterLoadingCheckbox": "Verwijder na het inladen opgeslagen data",
     "LoadButtonLabel": "Inladen"
   },
   "CDDEXPORT": {

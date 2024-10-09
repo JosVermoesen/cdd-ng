@@ -65,7 +65,7 @@
     "GeneratedXMLLabel": "Generated XML",
     "DescriptionLabel": "Description",
     "ReplaceEntriesCheckbox": "Remove existing entries first",
-    "DeleteAfterLoadingCheckbox": "Delete groupentries after loading",
+    "DeleteAfterLoadingCheckbox": "After loading delete saved data",
     "LoadButtonLabel": "Load"
   },
   "CDDEXPORT": {
