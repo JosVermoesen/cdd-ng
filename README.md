@@ -81,7 +81,7 @@ In angular.json, to avoid CommonJs warnings, add __allowedCommonJsDependencies__
 
 This app is now on Angular 17. Before starting an update, always commit first any valid open changes
 
-update to latest Angular 16:
+update to latest Angular 17:
 `ng update @angular/cli@17 @angular/core@17`
 
 Follow the instructions eventualy to fixes and test good working app
