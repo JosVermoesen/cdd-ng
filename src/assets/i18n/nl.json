@@ -39,7 +39,7 @@
     "UnLockButtonLabel": "Ontgrendel",
     "TabAddLabel": "Nieuw",
     "TabEditLabel": "Wijzigen",
-    "TabMaintenanceLabel": "Onderhoud",
+    "TabMaintenanceLabel": "",
     "EndToEndRequiredMessage": "EndToEnd bericht is verplicht",
     "AmountRequiredMessage": "minstens 0.01, max 5000",
     "AmountMinMaxMessage": "minstens 0.01 and maximum 5000",
