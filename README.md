@@ -77,11 +77,11 @@ In angular.json, to avoid CommonJs warnings, add __allowedCommonJsDependencies__
             ...
 ```
 
-## Updating to latest Angular 17
+## Updating to latest Angular 18
 
-This app is now on Angular 17. Before starting an update, always commit first any valid open changes
+This app is now on Angular 18. Before starting an update, always commit first any valid open changes
 
-update to latest Angular 17:
-`ng update @angular/cli@17 @angular/core@17`
+update to latest Angular 18:
+`ng update @angular/cli@18 @angular/core@18`
 
 Follow the instructions eventualy to fixes and test good working app

@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
-import * as JSZip from 'jszip';
+import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 
 // import * as moment from 'moment';

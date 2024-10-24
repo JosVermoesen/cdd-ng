@@ -1,3 +1,3 @@
 export const constantVariables = {
-  version: '17.3.12',
+  version: '18.2.8',
 };

@@ -1,7 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import {
+  HttpClient,
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -44,10 +48,17 @@ export function createTranslateLoader(http: HttpClient) {
     DomSaveComponent,
     DomToolsComponent,
   ],
+  /* entryComponents: [
+      LanguageComponent,
+      DomSettingsComponent,
+      DomExportComponent,
+      DomLoadComponent,
+      DomSaveComponent,
+    ], */
+  bootstrap: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    HttpClientModule,
     ReactiveFormsModule,
     TranslateModule.forRoot({
       loader: {
@@ -61,27 +72,11 @@ export function createTranslateLoader(http: HttpClient) {
     BsDatepickerModule.forRoot(),
     ModalModule.forRoot(),
   ],
-  providers: [DomService, LanguageService, BsModalRef],
-  /* entryComponents: [
-    LanguageComponent,
-    DomSettingsComponent,
-    DomExportComponent,
-    DomLoadComponent,
-    DomSaveComponent,
-  ], */
-  bootstrap: [AppComponent],
+  providers: [
+    DomService,
+    LanguageService,
+    BsModalRef,
+    provideHttpClient(withInterceptorsFromDi()),
+  ],
 })
 export class AppModule {}
-
-/* import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-
-@NgModule({
-  declarations: [AppComponent],
-  imports: [BrowserModule],
-  providers: [],
-  bootstrap: [AppComponent],
-})
-export class AppModule {} */
