@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 const LNG_KEY = 'SELECTED_LANGUAGE';
@@ -8,8 +8,7 @@ const LNG_KEY = 'SELECTED_LANGUAGE';
 })
 export class LanguageService {
   selected = '';
-
-  constructor(private translate: TranslateService) {}
+  translate = inject(TranslateService)
 
   setInitialAppLanguage() {
     const language = this.translate.getBrowserLang();

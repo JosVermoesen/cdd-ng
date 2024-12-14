@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, inject, OnInit, TemplateRef } from '@angular/core';
 
 import { TranslateService } from '@ngx-translate/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
@@ -14,9 +14,13 @@ import { DomExportComponent } from './../domexport/domexport.component';
   selector: 'app-domentries',
   templateUrl: './domentries.component.html',
   styleUrls: ['./domentries.component.css'],
+  standalone: false
 })
 export class DomEntriesComponent implements OnInit {
   bsModalRef!: BsModalRef;
+  domService = inject(DomService)
+  modalService = inject(BsModalService)
+  ts = inject(TranslateService)
 
   domEntries!: DomEntry[];
   selectedDomEntry!: DomEntry;
@@ -26,12 +30,6 @@ export class DomEntriesComponent implements OnInit {
 
   loaded = false;
   entryCount!: number;
-
-  constructor(
-    private domService: DomService,
-    private modalService: BsModalService,
-    private ts: TranslateService
-  ) { }
 
   ngOnInit() {
     this.domService.stateClear.subscribe((clear) => {

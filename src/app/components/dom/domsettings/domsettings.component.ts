@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
 
@@ -14,8 +14,13 @@ import { format } from 'date-fns';
   selector: 'app-domsettings',
   templateUrl: './domsettings.component.html',
   styleUrls: ['./domsettings.component.css'],
+  standalone: false
 })
 export class DomSettingsComponent implements OnInit {
+  bsModalRef = inject(BsModalRef)
+  fb = inject(FormBuilder)
+  ts = inject(TranslateService)
+
   title!: string;
   closeBtnName!: string;
   maleOrFemale!: string;
@@ -33,12 +38,6 @@ export class DomSettingsComponent implements OnInit {
   ibanLabel: string;
   bicLabel: string;
   domIdLabel: string; */
-
-  constructor(
-    public bsModalRef: BsModalRef,
-    private fb: FormBuilder,
-    private ts: TranslateService
-  ) {}
 
   public ngOnInit(): void {
     /* this.ts.get('CDDSETTINGS.NameLabel').subscribe((res: string) => {

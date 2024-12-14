@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 
 import { BsModalRef } from 'ngx-bootstrap/modal';
@@ -10,6 +10,7 @@ import { Language } from 'src/app/models/language';
   selector: 'app-language',
   templateUrl: './language.component.html',
   styleUrls: ['./language.component.css'],
+  standalone: false
 })
 export class LanguageComponent implements OnInit {
   title!: string;
@@ -19,8 +20,8 @@ export class LanguageComponent implements OnInit {
   selected = '';
 
   public onSelected!: Subject<boolean>;
-
-  constructor(public bsModalRef: BsModalRef, private ls: LanguageService) {}
+  bsModalRef = inject(BsModalRef)
+  ls = inject(LanguageService)
 
   public ngOnInit(): void {
     this.onSelected = new Subject();

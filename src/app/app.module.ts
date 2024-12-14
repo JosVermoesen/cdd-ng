@@ -79,4 +79,4 @@ export function createTranslateLoader(http: HttpClient) {
     provideHttpClient(withInterceptorsFromDi()),
   ],
 })
-export class AppModule {}
+export class AppModule { }

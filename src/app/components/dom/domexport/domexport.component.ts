@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
@@ -18,8 +18,13 @@ import { DomCompany } from './../../../models/domCompany';
   selector: 'app-domexport',
   templateUrl: './domexport.component.html',
   styleUrls: ['./domexport.component.css'],
+  standalone: false
 })
 export class DomExportComponent implements OnInit {
+  bsModalRef = inject(BsModalRef)
+  http = inject(HttpClient)
+  fb = inject(FormBuilder)
+
   title!: string;
   closeBtnName!: string;
 
@@ -50,12 +55,6 @@ export class DomExportComponent implements OnInit {
   domEntryData!: string[];
 
   public onSelected!: Subject<boolean>;
-
-  constructor(
-    public bsModalRef: BsModalRef,
-    private http: HttpClient,
-    private fb: FormBuilder
-  ) {}
 
   public ngOnInit(): void {
     this.onSelected = new Subject();
@@ -250,9 +249,9 @@ export class DomExportComponent implements OnInit {
       saveAs(
         blob,
         this.domExportForm.value.domDescription +
-          '-memo_' +
-          this.domExportForm.value.domMemoDate +
-          '.xml'
+        '-memo_' +
+        this.domExportForm.value.domMemoDate +
+        '.xml'
       );
       // Save a log
       // const momentDate = moment().format('YYYYMMDD-hhmmss');

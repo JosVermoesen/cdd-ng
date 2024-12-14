@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
 
@@ -10,8 +10,12 @@ import { DomEntry } from './../../../models/domEntry';
   selector: 'app-domload',
   templateUrl: './domload.component.html',
   styleUrls: ['./domload.component.css'],
+  standalone: false
 })
 export class DomLoadComponent implements OnInit {
+  bsModalRef = inject(BsModalRef)
+  fb = inject(FormBuilder)
+
   title!: string;
   closeBtnName!: string;
   locationReload = false;
@@ -25,15 +29,13 @@ export class DomLoadComponent implements OnInit {
 
   public onSelected!: Subject<boolean>;
 
-  constructor(public bsModalRef: BsModalRef, private fb: FormBuilder) {}
-
   public ngOnInit(): void {
     this.onChangeGroupType('cddClient_');
     this.onSelected = new Subject();
   }
 
   onChangeGroupType(groupTypeTarget: any) {
-    const domToSearch = groupTypeTarget.value || 'choose';    
+    const domToSearch = groupTypeTarget.value || 'choose';
     const lengthOfSearch = domToSearch.length;
     this.localStorageItems = [];
     this.localStorageItemValues = [];

@@ -1,7 +1,7 @@
 <div class="modal-header">
   <h4 class="modal-title pull-left">{{title}}</h4>
   <button type="button" class="btn-close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
-    
+
   </button>
 </div>
 <div class="modal-body">
@@ -9,7 +9,8 @@
     <div class="form-group">
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <label class="input-group-text me-2" for="inputGroupSelect01">{{ 'CDDSAVE.GroupTypeLabel' | translate }}</label>
+          <label class="input-group-text me-2" for="inputGroupSelect01">{{ 'CDDSAVE.GroupTypeLabel' | translate
+            }}</label>
         </div>
         <select class="form-select" id="inputGroupSelect01" formControlName="groupType">
           <option value="cddClient_">{{ 'CDDSAVE.ClientLabel' | translate }}</option>
@@ -31,8 +32,8 @@
 
     <div class="form-group">
       <div *ngIf="!locationReload">
-        <button type="button" class="btn btn-primary" [disabled]="!domSaveForm.valid"
-          (click)="onSubmit()">{{ 'CDDSAVE.SaveButtonLabel' | translate }}</button>
+        <button type="button" class="btn btn-primary" [disabled]="!domSaveForm.valid" (click)="onSubmit()">{{
+          'CDDSAVE.SaveButtonLabel' | translate }}</button>
       </div>
 
       <div *ngIf="locationReload">

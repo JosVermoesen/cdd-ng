@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Component, TemplateRef } from '@angular/core';
+import { Component, inject, TemplateRef } from '@angular/core';
 
 import { TranslateService } from '@ngx-translate/core';
 
@@ -17,9 +17,12 @@ import { DomSettingsComponent } from '../domsettings/domsettings.component';
   selector: 'app-domtools',
   templateUrl: './domtools.component.html',
   styleUrls: ['./domtools.component.css'],
+  standalone: false
 })
 export class DomToolsComponent {
   bsModalRef!: BsModalRef;
+  modalService = inject(BsModalService)
+  ts = inject(TranslateService)
 
   iCount = 0;
   selectedLabel = 'cdd* json | zip';
@@ -37,15 +40,10 @@ export class DomToolsComponent {
   contentJson = null;
 
   fileNameArray = [] as any;
-  fileNameLeftArray = []  as any;
+  fileNameLeftArray = [] as any;
   contentJsonArray = [] as any;
 
   selectedFile = 0;
-
-  constructor(
-    private modalService: BsModalService,
-    private ts: TranslateService
-  ) {}
 
   openModalSettings() {
     const lblTitle = this.ts.instant('CDDTOOLS.SettingsModalTitle');
@@ -123,7 +121,7 @@ export class DomToolsComponent {
     this.contentJson = null;
     this.fileIsZip = false;
     this.fileIsJson = false;
-    this.file =   null;
+    this.file = null;
     this.fileName = 'cdd* json | zip';
     this.fileNameArray = [];
   }
@@ -133,14 +131,14 @@ export class DomToolsComponent {
     this.contentJson = this.contentJsonArray[target.value];
   }
 
-  fileRead(jsonFileName: string, jsonFileLeft: any ) {
+  fileRead(jsonFileName: string, jsonFileLeft: any) {
     const fr = new FileReader();
     fr.onload = () => {
       this.fileNameLeftArray.unshift(jsonFileLeft);
       this.contentJsonArray.unshift(JSON.parse('' + fr.result));
       this.fileNameArray.unshift(jsonFileName);
     };
-    fr.readAsText(this.file );
+    fr.readAsText(this.file);
   }
 
   questionYesNo(template: TemplateRef<any>) {

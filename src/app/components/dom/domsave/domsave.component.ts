@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
 
@@ -9,9 +9,13 @@ import { DomEntry } from './../../../models/domEntry';
 @Component({
   selector: 'app-domsave',
   templateUrl: './domsave.component.html',
-  styleUrls: ['./domsave.component.css']
+  styleUrls: ['./domsave.component.css'],
+  standalone: false
 })
 export class DomSaveComponent implements OnInit {
+  bsModalRef = inject(BsModalRef)
+  fb = inject(FormBuilder)
+
   title!: string;
   closeBtnName!: string;
   locationReload = false;
@@ -20,8 +24,6 @@ export class DomSaveComponent implements OnInit {
   domJson!: DomEntry[];
 
   public onSaved!: Subject<boolean>;
-
-  constructor(public bsModalRef: BsModalRef, private fb: FormBuilder) {}
 
   public ngOnInit(): void {
     this.onSaved = new Subject();

@@ -1,11 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, inject, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
 
-// import * as moment from 'moment';
 import { format } from 'date-fns';
 import { constantVariables } from '../../../appconstants';
 
@@ -19,10 +18,15 @@ import { IbanCheck } from 'src/app/functions/ibancheck';
   selector: 'app-domentry',
   templateUrl: './domentry.component.html',
   styleUrls: ['./domentry.component.css'],
+  standalone: false
 })
 export class DomEntryComponent implements OnInit {
   @ViewChild('staticTabs') staticTabs!: TabsetComponent;
   bsModalRef!: BsModalRef;
+  domService = inject(DomService)
+  fb = inject(FormBuilder)
+  ts = inject(TranslateService)
+
   cddVersion = constantVariables.version;
   warning!: string;
   domJson!: DomEntry[];
@@ -49,12 +53,6 @@ export class DomEntryComponent implements OnInit {
   ibanMinMaxMessage: string;
   communicationRequiredMessage: string;
   validationMessages: any; */
-
-  constructor(
-    private domService: DomService,
-    private fb: FormBuilder,
-    private ts: TranslateService
-  ) {}
 
   ngOnInit() {
     // this.initErrorMessages();
