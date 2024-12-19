@@ -9,7 +9,9 @@ Your data is stored as json files inside the localStorage of the browser you are
 
 ## Development Tools used for this app on march 2023
 
-- [NodeJS](https://nodejs.org/)
+- [Install NVM for different versions of NodeJS)](https://github.com/coreybutler/nvm-windows/releases)
+- In terminal `nvm install 20.14.0` and `nvm use 20.14.0`
+
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Angular CLI(v19)](https://www.npmjs.com/package/@angular/cli): `npm i -g @angular/cli@19`
 
