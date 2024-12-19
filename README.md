@@ -11,7 +11,7 @@ Your data is stored as json files inside the localStorage of the browser you are
 
 - [NodeJS](https://nodejs.org/)
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [Angular CLI(v17)](https://www.npmjs.com/package/@angular/cli): `npm i -g @angular/cli@17`
+- [Angular CLI(v19)](https://www.npmjs.com/package/@angular/cli): `npm i -g @angular/cli@19`
 
 ## Getting started for developers
 
