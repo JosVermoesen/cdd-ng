@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, ViewChild } from '@angular/core';
+import { Component, inject, OnInit, viewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -21,7 +21,7 @@ import { IbanCheck } from 'src/app/functions/ibancheck';
   standalone: false
 })
 export class DomEntryComponent implements OnInit {
-  @ViewChild('staticTabs') staticTabs!: TabsetComponent;
+  readonly staticTabs = viewChild.required<TabsetComponent>('staticTabs');
   bsModalRef!: BsModalRef;
   domService = inject(DomService)
   fb = inject(FormBuilder)
@@ -188,8 +188,9 @@ export class DomEntryComponent implements OnInit {
   }
 
   selectTab(tabId: number) {
-    if (this.staticTabs?.tabs[tabId]) {
-      this.staticTabs.tabs[tabId].active = true;
+    const staticTabs = this.staticTabs();
+    if (staticTabs?.tabs[tabId]) {
+      staticTabs.tabs[tabId].active = true;
     }
     /* this.staticTabs.tabs[tabId].active = true; */
   }

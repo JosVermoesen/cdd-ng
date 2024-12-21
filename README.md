@@ -86,4 +86,10 @@ This app is now on Angular 19. Before starting an update, always commit first an
 update to latest Angular 19:
 `ng update @angular/cli@19 @angular/core@19`
 
-Follow the instructions eventualy to fixes and test good working app
+### Angular 19.0.0 refactoring tools
+
+ng g @angular/core:signal-input-migration
+ng g @angular/core:signal-queries-migration
+ng g @angular/core:output-migration
+
+[Update to Angular 19](https://update.angular.io/)
