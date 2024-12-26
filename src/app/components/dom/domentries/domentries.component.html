@@ -44,7 +44,8 @@
       [disabled]="!domEntries.length"
       (click)="openModalExport()"
     >
-      {{ "CDDENTRIES.ExportButtonLabel" | translate }} {{ domEntries.length }}
+      {{ "CDDENTRIES.ExportButtonLabel" | translate }}
+      {{ totalAmount | currency : "EUR" }} ({{ domEntries.length }})
     </button>
     <button
       type="button"

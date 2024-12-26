@@ -30,6 +30,7 @@ export class DomEntriesComponent implements OnInit {
 
   loaded = false;
   entryCount!: number;
+  totalAmount!: number;
 
   ngOnInit() {
     this.domService.stateClear.subscribe((clear) => {
@@ -53,6 +54,7 @@ export class DomEntriesComponent implements OnInit {
     this.domService.getDomEntries().subscribe((result: DomEntry[]) => {
       this.domEntries = result;
       this.loaded = true;
+      this.totalAmount = 0;
 
       if (this.domEntries.length === 0) {
         this.entryCount = 0;
@@ -62,8 +64,10 @@ export class DomEntriesComponent implements OnInit {
         for (let index = 0; index < this.domEntries.length; index++) {
           const dummyNotProvided = (Date.now() + (index * 2)).toString(); // 'NOTPROVIDED';
           this.domEntries[index].endToEndReference = dummyNotProvided
+          this.totalAmount += this.domEntries[index].amount;
         }
         console.log(this.domEntries)
+        console.log(this.totalAmount)
       }
     });
   }
