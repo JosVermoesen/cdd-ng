@@ -12,16 +12,16 @@ import { DomExportComponent } from './../domexport/domexport.component';
 import { NgFor, CurrencyPipe } from '@angular/common';
 
 @Component({
-    selector: 'app-domentries',
-    templateUrl: './domentries.component.html',
-    styleUrls: ['./domentries.component.css'],
-    imports: [NgFor, CurrencyPipe, TranslateModule]
+  selector: 'app-domentries',
+  templateUrl: './domentries.component.html',
+  styleUrls: ['./domentries.component.css'],
+  imports: [NgFor, CurrencyPipe, TranslateModule],
 })
 export class DomEntriesComponent implements OnInit {
   bsModalRef!: BsModalRef;
-  domService = inject(DomService)
-  modalService = inject(BsModalService)
-  ts = inject(TranslateService)
+  domService = inject(DomService);
+  modalService = inject(BsModalService);
+  ts = inject(TranslateService);
 
   domEntries!: DomEntry[];
   selectedDomEntry!: DomEntry;
@@ -63,12 +63,12 @@ export class DomEntriesComponent implements OnInit {
         this.entryCount = this.domEntries.length;
 
         for (let index = 0; index < this.domEntries.length; index++) {
-          const dummyNotProvided = (Date.now() + (index * 2)).toString(); // 'NOTPROVIDED';
-          this.domEntries[index].endToEndReference = dummyNotProvided
+          const dummyNotProvided = (Date.now() + index * 2).toString(); // 'NOTPROVIDED';
+          this.domEntries[index].endToEndReference = dummyNotProvided;
           this.totalAmount += this.domEntries[index].amount;
         }
-        console.log(this.domEntries)
-        console.log(this.totalAmount)
+        console.log(this.domEntries);
+        console.log(this.totalAmount);
       }
     });
   }

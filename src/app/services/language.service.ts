@@ -8,7 +8,7 @@ const LNG_KEY = 'SELECTED_LANGUAGE';
 })
 export class LanguageService {
   selected = '';
-  translate = inject(TranslateService)
+  translate = inject(TranslateService);
 
   setInitialAppLanguage() {
     const language = this.translate.getBrowserLang();

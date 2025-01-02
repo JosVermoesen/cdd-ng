@@ -1,5 +1,10 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { Subject } from 'rxjs';
 
 import { BsModalRef } from 'ngx-bootstrap/modal';
@@ -9,14 +14,14 @@ import { NgIf } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-    selector: 'app-domsave',
-    templateUrl: './domsave.component.html',
-    styleUrls: ['./domsave.component.css'],
-    imports: [ReactiveFormsModule, NgIf, TranslateModule]
+  selector: 'app-domsave',
+  templateUrl: './domsave.component.html',
+  styleUrls: ['./domsave.component.css'],
+  imports: [ReactiveFormsModule, NgIf, TranslateModule],
 })
 export class DomSaveComponent implements OnInit {
-  bsModalRef = inject(BsModalRef)
-  fb = inject(FormBuilder)
+  bsModalRef = inject(BsModalRef);
+  fb = inject(FormBuilder);
 
   title!: string;
   closeBtnName!: string;
@@ -34,7 +39,7 @@ export class DomSaveComponent implements OnInit {
     this.domSaveForm = this.fb.group({
       groupType: [null, Validators.required],
       name: [null, Validators.required],
-      clearEntriesAfterSaving: [true]
+      clearEntriesAfterSaving: [true],
     });
   }
 

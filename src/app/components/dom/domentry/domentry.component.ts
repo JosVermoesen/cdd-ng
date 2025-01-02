@@ -1,5 +1,10 @@
 import { Component, inject, OnInit, viewChild } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
 
 import { BsModalRef } from 'ngx-bootstrap/modal';
@@ -15,21 +20,34 @@ import { Guid } from 'src/app/functions/guid';
 import { IbanCheck } from 'src/app/functions/ibancheck';
 import { DomEntriesComponent } from '../domentries/domentries.component';
 import { NgIf } from '@angular/common';
-import { BsDatepickerInputDirective, BsDatepickerDirective } from 'ngx-bootstrap/datepicker';
+import {
+  BsDatepickerInputDirective,
+  BsDatepickerDirective,
+} from 'ngx-bootstrap/datepicker';
 import { DomToolsComponent } from '../domtools/domtools.component';
 
 @Component({
-    selector: 'app-domentry',
-    templateUrl: './domentry.component.html',
-    styleUrls: ['./domentry.component.css'],
-    imports: [TabsetComponent, TabDirective, DomEntriesComponent, ReactiveFormsModule, NgIf, BsDatepickerInputDirective, BsDatepickerDirective, DomToolsComponent, TranslateModule]
+  selector: 'app-domentry',
+  templateUrl: './domentry.component.html',
+  styleUrls: ['./domentry.component.css'],
+  imports: [
+    TabsetComponent,
+    TabDirective,
+    DomEntriesComponent,
+    ReactiveFormsModule,
+    NgIf,
+    BsDatepickerInputDirective,
+    BsDatepickerDirective,
+    DomToolsComponent,
+    TranslateModule,
+  ],
 })
 export class DomEntryComponent implements OnInit {
   readonly staticTabs = viewChild.required<TabsetComponent>('staticTabs');
   bsModalRef!: BsModalRef;
-  domService = inject(DomService)
-  fb = inject(FormBuilder)
-  ts = inject(TranslateService)
+  domService = inject(DomService);
+  fb = inject(FormBuilder);
+  ts = inject(TranslateService);
 
   cddVersion = constantVariables.version;
   warning!: string;

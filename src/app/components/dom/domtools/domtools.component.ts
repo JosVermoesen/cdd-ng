@@ -9,22 +9,22 @@ import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 
 // import * as moment from 'moment';
-import { format } from 'date-fns'
+import { format } from 'date-fns';
 
 import { DomSettingsComponent } from '../domsettings/domsettings.component';
 import { NgIf, NgFor, JsonPipe } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-    selector: 'app-domtools',
-    templateUrl: './domtools.component.html',
-    styleUrls: ['./domtools.component.css'],
-    imports: [NgIf, NgFor, ReactiveFormsModule, JsonPipe, TranslateModule]
+  selector: 'app-domtools',
+  templateUrl: './domtools.component.html',
+  styleUrls: ['./domtools.component.css'],
+  imports: [NgIf, NgFor, ReactiveFormsModule, JsonPipe, TranslateModule],
 })
 export class DomToolsComponent {
   bsModalRef!: BsModalRef;
-  modalService = inject(BsModalService)
-  ts = inject(TranslateService)
+  modalService = inject(BsModalService);
+  ts = inject(TranslateService);
 
   iCount = 0;
   selectedLabel = 'cdd* json | zip';

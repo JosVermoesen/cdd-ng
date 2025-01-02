@@ -1,6 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, inject, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormGroup,
+  Validators,
+  FormBuilder,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 
@@ -8,24 +13,31 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 
 import { saveAs } from 'file-saver';
 
-// import * as moment from 'moment';
 import { format, formatISO } from 'date-fns';
 
 import { DomEntry } from '../../../models/domEntry';
 import { DomCompany } from './../../../models/domCompany';
-import { BsDatepickerInputDirective, BsDatepickerDirective } from 'ngx-bootstrap/datepicker';
+import {
+  BsDatepickerInputDirective,
+  BsDatepickerDirective,
+} from 'ngx-bootstrap/datepicker';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-    selector: 'app-domexport',
-    templateUrl: './domexport.component.html',
-    styleUrls: ['./domexport.component.css'],
-    imports: [ReactiveFormsModule, BsDatepickerInputDirective, BsDatepickerDirective, TranslateModule]
+  selector: 'app-domexport',
+  templateUrl: './domexport.component.html',
+  styleUrls: ['./domexport.component.css'],
+  imports: [
+    ReactiveFormsModule,
+    BsDatepickerInputDirective,
+    BsDatepickerDirective,
+    TranslateModule,
+  ],
 })
 export class DomExportComponent implements OnInit {
-  bsModalRef = inject(BsModalRef)
-  http = inject(HttpClient)
-  fb = inject(FormBuilder)
+  bsModalRef = inject(BsModalRef);
+  http = inject(HttpClient);
+  fb = inject(FormBuilder);
 
   title!: string;
   closeBtnName!: string;
@@ -251,9 +263,9 @@ export class DomExportComponent implements OnInit {
       saveAs(
         blob,
         this.domExportForm.value.domDescription +
-        '-memo_' +
-        this.domExportForm.value.domMemoDate +
-        '.xml'
+          '-memo_' +
+          this.domExportForm.value.domMemoDate +
+          '.xml'
       );
       // Save a log
       // const momentDate = moment().format('YYYYMMDD-hhmmss');

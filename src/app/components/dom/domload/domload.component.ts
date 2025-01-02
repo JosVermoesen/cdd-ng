@@ -1,5 +1,10 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { Subject } from 'rxjs';
 
 import { BsModalRef } from 'ngx-bootstrap/modal';
@@ -9,14 +14,14 @@ import { NgFor, NgIf } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-    selector: 'app-domload',
-    templateUrl: './domload.component.html',
-    styleUrls: ['./domload.component.css'],
-    imports: [ReactiveFormsModule, NgFor, NgIf, TranslateModule]
+  selector: 'app-domload',
+  templateUrl: './domload.component.html',
+  styleUrls: ['./domload.component.css'],
+  imports: [ReactiveFormsModule, NgFor, NgIf, TranslateModule],
 })
 export class DomLoadComponent implements OnInit {
-  bsModalRef = inject(BsModalRef)
-  fb = inject(FormBuilder)
+  bsModalRef = inject(BsModalRef);
+  fb = inject(FormBuilder);
 
   title!: string;
   closeBtnName!: string;

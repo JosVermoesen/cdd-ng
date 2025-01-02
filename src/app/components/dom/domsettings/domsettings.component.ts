@@ -1,5 +1,10 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { Subject } from 'rxjs';
 
 import { BsModalRef } from 'ngx-bootstrap/modal';
@@ -11,15 +16,15 @@ import { NinCheck } from '../../../functions/nincheck';
 import { format } from 'date-fns';
 
 @Component({
-    selector: 'app-domsettings',
-    templateUrl: './domsettings.component.html',
-    styleUrls: ['./domsettings.component.css'],
-    imports: [ReactiveFormsModule, TranslateModule]
+  selector: 'app-domsettings',
+  templateUrl: './domsettings.component.html',
+  styleUrls: ['./domsettings.component.css'],
+  imports: [ReactiveFormsModule, TranslateModule],
 })
 export class DomSettingsComponent implements OnInit {
-  bsModalRef = inject(BsModalRef)
-  fb = inject(FormBuilder)
-  ts = inject(TranslateService)
+  bsModalRef = inject(BsModalRef);
+  fb = inject(FormBuilder);
+  ts = inject(TranslateService);
 
   title!: string;
   closeBtnName!: string;

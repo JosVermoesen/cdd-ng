@@ -6,15 +6,15 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { LanguageComponent } from './language/language.component';
 
 @Component({
-    selector: 'app-navbar',
-    templateUrl: './navbar.component.html',
-    styleUrls: ['./navbar.component.css'],
-    imports: [TranslateModule]
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css'],
+  imports: [TranslateModule],
 })
 export class NavbarComponent {
   bsModalRef!: BsModalRef;
-  modalService = inject(BsModalService)
-  translate = inject(TranslateService)
+  modalService = inject(BsModalService);
+  translate = inject(TranslateService);
 
   onLanguageModal() {
     const lblTitle = this.translate.instant('NAVBAR.LanguageModalTitle');

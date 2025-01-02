@@ -8,10 +8,10 @@ import { Language } from 'src/app/models/language';
 import { NgFor } from '@angular/common';
 
 @Component({
-    selector: 'app-language',
-    templateUrl: './language.component.html',
-    styleUrls: ['./language.component.css'],
-    imports: [NgFor]
+  selector: 'app-language',
+  templateUrl: './language.component.html',
+  styleUrls: ['./language.component.css'],
+  imports: [NgFor],
 })
 export class LanguageComponent implements OnInit {
   title!: string;
@@ -21,8 +21,8 @@ export class LanguageComponent implements OnInit {
   selected = '';
 
   public onSelected!: Subject<boolean>;
-  bsModalRef = inject(BsModalRef)
-  ls = inject(LanguageService)
+  bsModalRef = inject(BsModalRef);
+  ls = inject(LanguageService);
 
   public ngOnInit(): void {
     this.onSelected = new Subject();
