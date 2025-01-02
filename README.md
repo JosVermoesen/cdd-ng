@@ -7,7 +7,7 @@
 You can use directly on [demo site](https://cdd.vsoft.be)
 Your data is stored as json files inside the localStorage of the browser you are using. With jsZip you can backup as zip file and/or transfert your data to other browsers and/or other computers
 
-## Development Tools used for this app on march 2023
+## Development Tools used for this app on december 2024
 
 - [Install NVM for different versions of NodeJS)](https://github.com/coreybutler/nvm-windows/releases)
 - In terminal `nvm install 20.14.0` and `nvm use 20.14.0`
@@ -26,16 +26,16 @@ Your data is stored as json files inside the localStorage of the browser you are
 
 ## NPM packages used for this app
 
-- [bootstrap(v5.2.3)](https://www.npmjs.com/package/bootstrap): `npm i bootstrap@5`
-- [ngx-bootstrap](https://www.npmjs.com/package/ngx-bootstrap): `npm i ngx-bootstrap@11` (or greater)
+- [bootstrap(v5.3.3)](https://www.npmjs.com/package/bootstrap): `npm i bootstrap@5`
+- [ngx-bootstrap](https://www.npmjs.com/package/ngx-bootstrap): `npm i ngx-bootstrap@19` (or greater)
 - [file-saver](https://www.npmjs.com/package/file-saver): `npm i file-saver`
 - [@types/file-saver](https://www.npmjs.com/package/@types/file-saver): `npm i @types/file-saver`
 - [jszip](https://www.npmjs.com/package/jszip): `npm i jszip`
 - [date-fns](https://www.npmjs.com/package/date-fns): `npm i date-fns`
-- [@ngx-translate/core](https://www.npmjs.com/package/@ngx-translate/core): `npm i @ngx-translate/core`
-- [@ngx-translate/http-loader](https://www.npmjs.com/package/@ngx-translate/http-loader): `npm i @ngx-translate/http-loader`
+- [@ngx-translate/core](https://www.npmjs.com/package/@ngx-translate/core): `npm i @ngx-translate/core@19`
+- [@ngx-translate/http-loader](https://www.npmjs.com/package/@ngx-translate/http-loader): `npm i @ngx-translate/http-loader@15`
 
-- install all packages in one commandline: `npm i bootstrap ngx-bootstrap file-saver @types/file-saver jszip date-fns @ngx-translate/core @ngx-translate/http-loader`
+- install all packages in one commandline: `npm i bootstrap ngx-bootstrap@19 file-saver @types/file-saver jszip date-fns @ngx-translate/core@19 @ngx-translate/http-loader@15`
 
 ## styles.css
 
@@ -74,10 +74,23 @@ In angular.json, to avoid CommonJs warnings, add __allowedCommonJsDependencies__
             "allowedCommonJsDependencies": [
               "file-saver",
               "moment",
-              "jszip",              
-            ],
+              "jszip"]
             ...
 ```
+
+## Angular 17.0.0 refactoring tools
+
+Follow the instructions in the [Angular Update Guide](https://update.angular.io/) to fix your app.
+
+### standalone components
+
+You can switch older Angular programs to standalone with `ng generate @angular/core:standalone`
+
+There are 3 options to refactor your code:
+
+- `ng generate @angular/core:standalone-components-migration`
+- `ng generate @angular/core:standalone-directives-migration`
+- `ng generate @angular/core:standalone-pipes-migration`
 
 ## Updating to latest Angular 19
 
@@ -93,3 +106,19 @@ ng g @angular/core:signal-queries-migration
 ng g @angular/core:output-migration
 
 [Update to Angular 19](https://update.angular.io/)
+
+## npm outdated
+
+In terminal use `npm outdated` to see what packages are requiring updates and what their current and wanted versions are.
+
+This will also show you which packages are deprecated.
+
+If you want to update a package to a version newer than what is specified in your package.json, you can do so by running npm update [package-name]@[version-number].
+
+## vulnerabilities
+
+In terminal use `npm audit fix` to automatically install compatible updates to vulnerable dependencies.
+
+You can first run `npm audit` to see vulnerabilities in your project for one or more packages.
+
+Run `npm ls [package-name]` to see which packages depend on the vulnerable package.
