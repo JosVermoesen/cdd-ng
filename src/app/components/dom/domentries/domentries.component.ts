@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, inject, OnInit, TemplateRef } from '@angular/core';
 
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 import { DomService } from '../../../services/dom.service';
@@ -9,12 +9,13 @@ import { DomEntry } from '../../../models/domEntry';
 import { DomSaveComponent } from './../domsave/domsave.component';
 import { DomLoadComponent } from '../domload/domload.component';
 import { DomExportComponent } from './../domexport/domexport.component';
+import { NgFor, CurrencyPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-domentries',
-  templateUrl: './domentries.component.html',
-  styleUrls: ['./domentries.component.css'],
-  standalone: false
+    selector: 'app-domentries',
+    templateUrl: './domentries.component.html',
+    styleUrls: ['./domentries.component.css'],
+    imports: [NgFor, CurrencyPipe, TranslateModule]
 })
 export class DomEntriesComponent implements OnInit {
   bsModalRef!: BsModalRef;

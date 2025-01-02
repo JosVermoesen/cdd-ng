@@ -1,15 +1,15 @@
 import { Component, inject } from '@angular/core';
 
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 import { LanguageComponent } from './language/language.component';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.css'],
-  standalone: false
+    selector: 'app-navbar',
+    templateUrl: './navbar.component.html',
+    styleUrls: ['./navbar.component.css'],
+    imports: [TranslateModule]
 })
 export class NavbarComponent {
   bsModalRef!: BsModalRef;

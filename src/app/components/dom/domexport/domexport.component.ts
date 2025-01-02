@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, inject, OnInit } from '@angular/core';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 
@@ -13,12 +13,14 @@ import { format, formatISO } from 'date-fns';
 
 import { DomEntry } from '../../../models/domEntry';
 import { DomCompany } from './../../../models/domCompany';
+import { BsDatepickerInputDirective, BsDatepickerDirective } from 'ngx-bootstrap/datepicker';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-  selector: 'app-domexport',
-  templateUrl: './domexport.component.html',
-  styleUrls: ['./domexport.component.css'],
-  standalone: false
+    selector: 'app-domexport',
+    templateUrl: './domexport.component.html',
+    styleUrls: ['./domexport.component.css'],
+    imports: [ReactiveFormsModule, BsDatepickerInputDirective, BsDatepickerDirective, TranslateModule]
 })
 export class DomExportComponent implements OnInit {
   bsModalRef = inject(BsModalRef)

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, inject, TemplateRef } from '@angular/core';
 
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateService, TranslateModule } from '@ngx-translate/core';
 
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
@@ -12,12 +12,14 @@ import { saveAs } from 'file-saver';
 import { format } from 'date-fns'
 
 import { DomSettingsComponent } from '../domsettings/domsettings.component';
+import { NgIf, NgFor, JsonPipe } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-domtools',
-  templateUrl: './domtools.component.html',
-  styleUrls: ['./domtools.component.css'],
-  standalone: false
+    selector: 'app-domtools',
+    templateUrl: './domtools.component.html',
+    styleUrls: ['./domtools.component.css'],
+    imports: [NgIf, NgFor, ReactiveFormsModule, JsonPipe, TranslateModule]
 })
 export class DomToolsComponent {
   bsModalRef!: BsModalRef;
