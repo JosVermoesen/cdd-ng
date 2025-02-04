@@ -23,8 +23,8 @@ export function createTranslateLoader(http: HttpClient) {
 export const appConfig: ApplicationConfig = {
   providers: [
     importProvidersFrom(
-      BrowserModule,
-      ReactiveFormsModule,
+      /* BrowserModule, */
+      /* ReactiveFormsModule, */
       TranslateModule.forRoot({
         loader: {
           provide: TranslateLoader,
@@ -32,14 +32,14 @@ export const appConfig: ApplicationConfig = {
           deps: [HttpClient],
         },
       }),
-      ButtonsModule.forRoot(),
+      /* ButtonsModule.forRoot(),
       TabsModule.forRoot(),
-      BsDatepickerModule.forRoot(),
+      BsDatepickerModule.forRoot(), */
       ModalModule.forRoot()
     ),
     DomService,
-    LanguageService,
-    BsModalRef,
+    /* LanguageService, */
+    /* BsModalRef, */
     provideHttpClient(withInterceptorsFromDi()),
     provideAnimations(),
   ],
