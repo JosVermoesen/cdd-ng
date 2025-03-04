@@ -42,4 +42,27 @@ PAYMENTMEANS/TERMS
 
 TAXTOTAL
 --------
-{taxTotalAmount}
+{taxTotalAmount} 435.86
+{taxableAmount03} 2075.50
+{taxAmount03} 435.86
+{taxCategory03} 03
+{taxPercent03} 21.00
+
+LEGALMTOTAL
+-----------
+{taxExclusiveAmount} 2075.50
+{taxInclusiveAmount} 2511.36
+{payableAmount} 2511.36
+
+INVOICELINES (ARRAY)
+------------
+{lineCounter+1} 1, 2, 3
+{lineQuantity} 1.00
+{lineExtensionAmount} 40.00, 399.50, 1636.00
+{lineAccountingCost} 701000
+{lineTaxAmountAccurate} 8.400000, 83.895000, 343.560000
+{lineDescription} Aangifte bedrijfsvoorheffing, Aangifte Vennootschapsbelasting, Afsluiting boekhouding
+{lineSellerItemIdentification} 1-701000
+{lineTaxCategory} 03
+{lineTaxPercentage} 21.00
+{linePriceAmount} 40.00, 399.50, 1636.00

@@ -101,14 +101,14 @@
               <cbc:Note>{orderReference}</cbc:Note>
        </cac:PaymentTerms>
        <cac:TaxTotal>
-              <cbc:TaxAmount currencyID="{currency}">435.86</cbc:TaxAmount>
+              <cbc:TaxAmount currencyID="{currency}">{taxTotalAmount}</cbc:TaxAmount>
               <cac:TaxSubtotal>
-                     <cbc:TaxableAmount currencyID="{currency}">2075.50</cbc:TaxableAmount>
-                     <cbc:TaxAmount currencyID="{currency}">435.86</cbc:TaxAmount>
+                     <cbc:TaxableAmount currencyID="{currency}">{taxableAmount03}</cbc:TaxableAmount>
+                     <cbc:TaxAmount currencyID="{currency}">{taxAmount03}</cbc:TaxAmount>
                      <cac:TaxCategory>
                             <cbc:ID>S</cbc:ID>
-                            <cbc:Name>03</cbc:Name>
-                            <cbc:Percent>21.00</cbc:Percent>
+                            <cbc:Name>{taxCategory03}</cbc:Name>
+                            <cbc:Percent>{taxPercent03}</cbc:Percent>
                             <cac:TaxScheme>
                                    <cbc:ID>{supplierTaxScheme}</cbc:ID>
                             </cac:TaxScheme>
@@ -116,90 +116,90 @@
               </cac:TaxSubtotal>
        </cac:TaxTotal>
        <cac:LegalMonetaryTotal>
-              <cbc:LineExtensionAmount currencyID="{currency}">2075.50</cbc:LineExtensionAmount>
-              <cbc:TaxExclusiveAmount currencyID="{currency}">2075.50</cbc:TaxExclusiveAmount>
-              <cbc:TaxInclusiveAmount currencyID="{currency}">2511.36</cbc:TaxInclusiveAmount>
-              <cbc:PayableAmount currencyID="{currency}">2511.36</cbc:PayableAmount>
+              <cbc:LineExtensionAmount currencyID="{currency}">{taxExclusiveAmount}</cbc:LineExtensionAmount>
+              <cbc:TaxExclusiveAmount currencyID="{currency}">{taxExclusiveAmount}</cbc:TaxExclusiveAmount>
+              <cbc:TaxInclusiveAmount currencyID="{currency}">{taxInclusiveAmount}</cbc:TaxInclusiveAmount>
+              <cbc:PayableAmount currencyID="{currency}">{payableAmount}</cbc:PayableAmount>
        </cac:LegalMonetaryTotal>
        <cac:InvoiceLine>
-              <cbc:ID>1</cbc:ID>
-              <cbc:InvoicedQuantity unitCode="ZZ">1.00</cbc:InvoicedQuantity>
-              <cbc:LineExtensionAmount currencyID="{currency}">40.00</cbc:LineExtensionAmount>
-              <cbc:AccountingCost>701000</cbc:AccountingCost>
+              <cbc:ID>{lineCounter+1}</cbc:ID>
+              <cbc:InvoicedQuantity unitCode="ZZ">{lineQuantity}</cbc:InvoicedQuantity>
+              <cbc:LineExtensionAmount currencyID="{currency}">{lineExtensionAmount}</cbc:LineExtensionAmount>
+              <cbc:AccountingCost>{lineAccountingCost}</cbc:AccountingCost>
               <cac:TaxTotal>
-                     <cbc:TaxAmount currencyID="{currency}">8.400000</cbc:TaxAmount>
+                     <cbc:TaxAmount currencyID="{currency}">{lineTaxAmountAccurate}</cbc:TaxAmount>
               </cac:TaxTotal>
               <cac:Item>
-                     <cbc:Description>Aangifte bedrijfsvoorheffing</cbc:Description>
-                     <cbc:Name>Aangifte bedrijfsvoorheffing</cbc:Name>
+                     <cbc:Description>{lineDescription}</cbc:Description>
+                     <cbc:Name>{lineDescription}</cbc:Name>
                      <cac:SellersItemIdentification>
-                            <cbc:ID>1-701000</cbc:ID>
+                            <cbc:ID>{lineSellerItemIdentification}</cbc:ID>
                      </cac:SellersItemIdentification>
                      <cac:ClassifiedTaxCategory>
                             <cbc:ID>S</cbc:ID>
-                            <cbc:Name>03</cbc:Name>
-                            <cbc:Percent>21.00</cbc:Percent>
+                            <cbc:Name>{lineTaxCategory}</cbc:Name>
+                            <cbc:Percent>{lineTaxPercentage}</cbc:Percent>
                             <cac:TaxScheme>
                                    <cbc:ID>{supplierTaxScheme}</cbc:ID>
                             </cac:TaxScheme>
                      </cac:ClassifiedTaxCategory>
               </cac:Item>
               <cac:Price>
-                     <cbc:PriceAmount currencyID="{currency}">40.00</cbc:PriceAmount>
+                     <cbc:PriceAmount currencyID="{currency}">{linePriceAmount}</cbc:PriceAmount>
               </cac:Price>
        </cac:InvoiceLine>
        <cac:InvoiceLine>
-              <cbc:ID>2</cbc:ID>
-              <cbc:InvoicedQuantity unitCode="ZZ">1.00</cbc:InvoicedQuantity>
-              <cbc:LineExtensionAmount currencyID="{currency}">399.50</cbc:LineExtensionAmount>
-              <cbc:AccountingCost>701000</cbc:AccountingCost>
+              <cbc:ID>{lineCounter+1}</cbc:ID>
+              <cbc:InvoicedQuantity unitCode="ZZ">{lineQuantity}</cbc:InvoicedQuantity>
+              <cbc:LineExtensionAmount currencyID="{currency}">{lineExtensionAmount}</cbc:LineExtensionAmount>
+              <cbc:AccountingCost>{lineAccountingCost}</cbc:AccountingCost>
               <cac:TaxTotal>
-                     <cbc:TaxAmount currencyID="{currency}">83.895000</cbc:TaxAmount>
+                     <cbc:TaxAmount currencyID="{currency}">{lineTaxAmountAccurate}</cbc:TaxAmount>
               </cac:TaxTotal>
               <cac:Item>
-                     <cbc:Description>Aangifte Vennootschapsbelasting</cbc:Description>
-                     <cbc:Name>Aangifte Vennootschapsbelasting</cbc:Name>
+                     <cbc:Description>{lineDescription}</cbc:Description>
+                     <cbc:Name>{lineDescription}</cbc:Name>
                      <cac:SellersItemIdentification>
-                            <cbc:ID>1-701000</cbc:ID>
+                            <cbc:ID>{lineSellerItemIdentification}</cbc:ID>
                      </cac:SellersItemIdentification>
                      <cac:ClassifiedTaxCategory>
                             <cbc:ID>S</cbc:ID>
-                            <cbc:Name>03</cbc:Name>
-                            <cbc:Percent>21.00</cbc:Percent>
+                            <cbc:Name>{lineTaxCategory}</cbc:Name>
+                            <cbc:Percent>{lineTaxPercentage}</cbc:Percent>
                             <cac:TaxScheme>
                                    <cbc:ID>{supplierTaxScheme}</cbc:ID>
                             </cac:TaxScheme>
                      </cac:ClassifiedTaxCategory>
               </cac:Item>
               <cac:Price>
-                     <cbc:PriceAmount currencyID="{currency}">399.50</cbc:PriceAmount>
+                     <cbc:PriceAmount currencyID="{currency}">{linePriceAmount}</cbc:PriceAmount>
               </cac:Price>
        </cac:InvoiceLine>
        <cac:InvoiceLine>
-              <cbc:ID>3</cbc:ID>
-              <cbc:InvoicedQuantity unitCode="ZZ">1.00</cbc:InvoicedQuantity>
-              <cbc:LineExtensionAmount currencyID="{currency}">1636.00</cbc:LineExtensionAmount>
-              <cbc:AccountingCost>701000</cbc:AccountingCost>
+              <cbc:ID>{lineCounter+1}</cbc:ID>
+              <cbc:InvoicedQuantity unitCode="ZZ">{quantity}</cbc:InvoicedQuantity>
+              <cbc:LineExtensionAmount currencyID="{currency}">{extensionAmount}</cbc:LineExtensionAmount>
+              <cbc:AccountingCost>{accountingCost}</cbc:AccountingCost>
               <cac:TaxTotal>
-                     <cbc:TaxAmount currencyID="{currency}">343.560000</cbc:TaxAmount>
+                     <cbc:TaxAmount currencyID="{currency}">{lineTaxAmountAccurate}</cbc:TaxAmount>
               </cac:TaxTotal>
               <cac:Item>
-                     <cbc:Description>Afsluiting boekhouding</cbc:Description>
-                     <cbc:Name>Afsluiting boekhouding</cbc:Name>
+                     <cbc:Description>{lineDescription}</cbc:Description>
+                     <cbc:Name>{lineDescription}</cbc:Name>
                      <cac:SellersItemIdentification>
-                            <cbc:ID>1-701000</cbc:ID>
+                            <cbc:ID>{lineSellerItemIdentification}</cbc:ID>
                      </cac:SellersItemIdentification>
                      <cac:ClassifiedTaxCategory>
                             <cbc:ID>S</cbc:ID>
-                            <cbc:Name>03</cbc:Name>
-                            <cbc:Percent>21.00</cbc:Percent>
+                            <cbc:Name>{lineTaxCategory}</cbc:Name>
+                            <cbc:Percent>{lineTaxPercentage}</cbc:Percent>
                             <cac:TaxScheme>
                                    <cbc:ID>{supplierTaxScheme}</cbc:ID>
                             </cac:TaxScheme>
                      </cac:ClassifiedTaxCategory>
               </cac:Item>
               <cac:Price>
-                     <cbc:PriceAmount currencyID="{currency}">1636.00</cbc:PriceAmount>
+                     <cbc:PriceAmount currencyID="{currency}">{linePriceAmount}</cbc:PriceAmount>
               </cac:Price>
        </cac:InvoiceLine>
 </Invoice>
