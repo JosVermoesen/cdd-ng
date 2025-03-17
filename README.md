@@ -12,8 +12,17 @@ Your data is stored as json files inside the localStorage of the browser you are
 - [Install NVM for different versions of NodeJS)](https://github.com/coreybutler/nvm-windows/releases)
 - In terminal `nvm install 20.14.0` and `nvm use 20.14.0`
 
+- [Angular CLI v19)](https://www.npmjs.com/package/@angular/cli): `npm i -g @angular/cli@19`
 - [Visual Studio Code](https://code.visualstudio.com/)
-- [Angular CLI(v19)](https://www.npmjs.com/package/@angular/cli): `npm i -g @angular/cli@19`
+
+## Favorite extensions and settings
+
+- [MarkDown Lint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
+- [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template)
+- [XML Tools](https://marketplace.visualstudio.com/items?itemName=DotJoshJohnson.xml)
+- [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer)
+- In settings 'brackets', activate Bracket Pair Colorization and Editor guides true
+- In settings 'auto close', set 'Auto Closing Brackets' and 'Auto Closing Quotes' to 'always'
 
 ## Getting started for developers
 

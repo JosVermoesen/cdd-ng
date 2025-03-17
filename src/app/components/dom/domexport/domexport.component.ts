@@ -74,14 +74,14 @@ export class DomExportComponent implements OnInit {
     this.onSelected = new Subject();
 
     this.http
-      .get('../../../assets/xmltemplates/dom-drctdbttxinf.xml', {
+      .get('../../../assets/xmltemplates/dom/dom-drctdbttxinf.xml', {
         responseType: 'text' as 'json',
       })
       .subscribe((data) => {
         this.templateClient = data;
       });
     this.http
-      .get('../../../assets/xmltemplates/dom-document.xml', {
+      .get('../../../assets/xmltemplates/dom/dom-document.xml', {
         responseType: 'text' as 'json',
       })
       .subscribe((data) => {
