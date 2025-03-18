@@ -15,7 +15,7 @@ Your data is stored as json files inside the localStorage of the browser you are
 - [Angular CLI v19)](https://www.npmjs.com/package/@angular/cli): `npm i -g @angular/cli@19`
 - [Visual Studio Code](https://code.visualstudio.com/)
 
-## Favorite extensions and settings
+## Favorite vscode extensions and settings
 
 - [MarkDown Lint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
 - [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template)
@@ -43,7 +43,7 @@ Your data is stored as json files inside the localStorage of the browser you are
 - [@ngx-translate/core](https://www.npmjs.com/package/@ngx-translate/core): `npm i @ngx-translate/core@19`
 - [@ngx-translate/http-loader](https://www.npmjs.com/package/@ngx-translate/http-loader): `npm i @ngx-translate/http-loader@15`
 
-- install all packages in one commandline: `npm i bootstrap ngx-bootstrap@19 file-saver @types/file-saver jszip date-fns @ngx-translate/core@19 @ngx-translate/http-loader@15`
+- install all packages in one commandline: `npm i bootstrap@5 ngx-bootstrap@19 file-saver @types/file-saver jszip date-fns @ngx-translate/core@19 @ngx-translate/http-loader@15`
 
 ## styles.css
 
