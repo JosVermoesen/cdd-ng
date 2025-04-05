@@ -86,7 +86,7 @@
        </cac:AccountingCustomerParty>
        <cac:PaymentMeans>
               <cbc:PaymentMeansCode>{paymentMeansCode}</cbc:PaymentMeansCode>
-              <cbc:PaymentID>{orderReference}</cbc:PaymentID>
+              <cbc:PaymentID>{paymentId}</cbc:PaymentID>
               <cac:PayeeFinancialAccount>
                      <cbc:ID>{supplierIBAN}</cbc:ID>
                      <cac:FinancialInstitutionBranch>
@@ -95,17 +95,17 @@
               </cac:PayeeFinancialAccount>
        </cac:PaymentMeans>
        <cac:PaymentTerms>
-              <cbc:Note>{orderReference}</cbc:Note>
+              <cbc:Note>{paymentTerms}</cbc:Note>
        </cac:PaymentTerms>
        <cac:TaxTotal>
               <cbc:TaxAmount currencyID="{currency}">{taxTotalAmount}</cbc:TaxAmount>
               <cac:TaxSubtotal>
-                     <cbc:TaxableAmount currencyID="{currency}">{taxableAmount03}</cbc:TaxableAmount>
-                     <cbc:TaxAmount currencyID="{currency}">{taxAmount03}</cbc:TaxAmount>
+                     <cbc:TaxableAmount currencyID="{currency}">{taxableAmount}</cbc:TaxableAmount>
+                     <cbc:TaxAmount currencyID="{currency}">{taxAmount}</cbc:TaxAmount>
                      <cac:TaxCategory>
                             <cbc:ID>S</cbc:ID>
-                            <cbc:Name>{taxCategory03}</cbc:Name>
-                            <cbc:Percent>{taxPercent03}</cbc:Percent>
+                            <cbc:Name>{taxCategory}</cbc:Name>
+                            <cbc:Percent>{taxPercent}</cbc:Percent>
                             <cac:TaxScheme>
                                    <cbc:ID>{supplierTaxScheme}</cbc:ID>
                             </cac:TaxScheme>

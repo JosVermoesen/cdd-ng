@@ -35,18 +35,18 @@ CUSTOMER:
 PAYMENTMEANS/TERMS
 ------------
 {paymentMeansCode} 1 see: https://docs.peppol.eu/poac/pint/pint/trn-invoice/codelist/UNCL4461/
-{orderReference} repeated1?
-{supplierIBAN}
-{supplierBIC}
-{orderReference} repeated2?
+{paymentId} ex. 024010022505
+{supplierIBAN} BE50001683378618
+{supplierBIC} GEBABEBB
+{paymentTerms} 024010022505
 
 TAXTOTAL
 --------
 {taxTotalAmount} 435.86
-{taxableAmount03} 2075.50
-{taxAmount03} 435.86
-{taxCategory03} 03
-{taxPercent03} 21.00
+{taxableAmount} 2075.50
+{taxAmount} 435.86
+{taxCategory} 03
+{taxPercent} 21.00
 
 LEGALMTOTAL
 -----------
