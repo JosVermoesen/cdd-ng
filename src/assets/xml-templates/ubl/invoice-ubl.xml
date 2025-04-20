@@ -24,6 +24,9 @@
        <cac:AdditionalDocumentReference>
               <cbc:ID>{invoiceNumber}</cbc:ID>
               <cbc:DocumentDescription>CommercialInvoice</cbc:DocumentDescription>
+              <cac:Attachment>
+                     <cbc:EmbeddedDocumentBinaryObject mimeCode="application/pdf" filename="{pdfFileName}">{pdfBase64}</cbc:EmbeddedDocumentBinaryObject>
+              </cac:Attachment>
        </cac:AdditionalDocumentReference>
        <cac:AccountingSupplierParty>
               <cac:Party>
@@ -54,8 +57,7 @@
                      </cac:Contact>
               </cac:Party>
        </cac:AccountingSupplierParty>
-       <cac:AccountingCustomerParty>
-              <!-- <cbc:CustomerAssignedAccountID>{customerNumber}</cbc:CustomerAssignedAccountID> -->
+       <cac:AccountingCustomerParty>              <!-- <cbc:CustomerAssignedAccountID>{customerNumber}</cbc:CustomerAssignedAccountID> -->
               <cac:Party>
                      <cbc:EndpointID schemeID="0208">{customerVatNumber}</cbc:EndpointID>
                      <cac:PartyName>
@@ -99,9 +101,7 @@
        </cac:PaymentTerms>
        <cac:TaxTotal>
               <cbc:TaxAmount currencyID="{currency}">{taxTotalAmount}</cbc:TaxAmount>
-              <cac:TaxSubtotal>
-                     <Vsoft>{taxsubtotals-template}</Vsoft>
-              </cac:TaxSubtotal>
+              <Vsoft>{taxsubtotals-template}</Vsoft>
        </cac:TaxTotal>
        <cac:LegalMonetaryTotal>
               <cbc:LineExtensionAmount currencyID="{currency}">{taxExclusiveAmount}</cbc:LineExtensionAmount>

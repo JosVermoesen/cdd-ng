@@ -17,13 +17,13 @@ c:\dev_data\Documentation\Intervat\Schemas_Version_14_8_avril_2024\TVA\NewTVA-in
       <common:EmailAddress>{emailDeclarant}</common:EmailAddress>
     </ns2:Declarant>
     <ns2:Period>
-      <ns2:Quarter>{period}</ns2:Quarter>
+      <ns2:{periodeType}>{period}</ns2:{periodeType}>
       <ns2:Year>{fiscalYear}</ns2:Year>
     </ns2:Period>
     <ns2:Data>
       <Vsoft>vatDeclareGridLinesList</Vsoft>
     </ns2:Data>
     <ns2:ClientListingNihil>NO</ns2:ClientListingNihil>
-    <ns2:Ask Restitution="{restitution}" Payment="{payment}"/>
+    <ns2:Ask Restitution="NO" Payment="NO"/>
   </ns2:VATDeclaration>
 </ns2:VATConsignment>
