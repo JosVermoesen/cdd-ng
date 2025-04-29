@@ -100,6 +100,8 @@ There are 3 options to refactor your code:
 - `ng generate @angular/core:standalone-directives-migration`
 - `ng generate @angular/core:standalone-pipes-migration`
 
+IF YOU WANT YOUR APP CHANGED TO STANDALONE COMPONENTS YOU MUST RUN THESE MIGRATION COMMANDS WITH ANGULAR VERSION 17.x BEFORE MOVING TO THE NEXT VERSION OF ANGULAR. OTHERWISE YOU WILL GET ERROR IN LATER VERSION AND YOU HAVE TO DO ALL MANUALY!
+
 ## Updating to latest Angular 19
 
 This app is now on Angular 19. Before starting an update, always commit first any valid open changes
@@ -109,9 +111,9 @@ update to latest Angular 19:
 
 ### Angular 19.0.0 refactoring tools
 
-ng g @angular/core:signal-input-migration
-ng g @angular/core:signal-queries-migration
-ng g @angular/core:output-migration
+- `ng g @angular/core:signal-input-migration`
+- `ng g @angular/core:signal-queries-migration`
+- `ng g @angular/core:output-migration`
 
 [Update to Angular 19](https://update.angular.io/)
 
