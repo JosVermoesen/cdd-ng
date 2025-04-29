@@ -7,7 +7,7 @@
 You can use directly on [demo site](https://cdd.vsoft.be)
 Your data is stored as json files inside the localStorage of the browser you are using. With jsZip you can backup as zip file and/or transfert your data to other browsers and/or other computers
 
-## Development Tools used for this app on december 2024
+## Development Tools used for this app on april 2025
 
 - [Install NVM for different versions of NodeJS)](https://github.com/coreybutler/nvm-windows/releases)
 - In terminal `nvm install 22.14.0` and `nvm use 22.14.0`
