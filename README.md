@@ -102,12 +102,12 @@ There are 3 options to refactor your code:
 
 IF YOU WANT YOUR APP CHANGED TO STANDALONE COMPONENTS YOU MUST RUN THESE MIGRATION COMMANDS WITH ANGULAR VERSION 17.x BEFORE MOVING TO THE NEXT VERSION OF ANGULAR. OTHERWISE YOU WILL GET ERROR IN LATER VERSION AND YOU HAVE TO DO ALL MANUALY!
 
-## Updating to latest Angular 19
+## Updating to latest Angular 20
 
-This app is now on Angular 19. Before starting an update, always commit first any valid open changes
+This app is now on Angular 20. Before starting an update, always commit first any valid open changes
 
 update to latest Angular 19:
-`ng update @angular/cli@19 @angular/core@19`
+`ng update @angular/cli@20 @angular/core@20`
 
 ### Angular 19.0.0 refactoring tools
 
@@ -115,7 +115,7 @@ update to latest Angular 19:
 - `ng g @angular/core:signal-queries-migration`
 - `ng g @angular/core:output-migration`
 
-[Update to Angular 19](https://update.angular.io/)
+[Update to Angular 20](https://update.angular.io/)
 
 ## npm outdated
 
