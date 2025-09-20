@@ -16,6 +16,6 @@ C:\DEV_DATA\Documentation\Intervat\Schemas_Version_14\Listings\NewLK-in_v0_9.xsd
             <common:EmailAddress>{emailDeclarant}</common:EmailAddress>
         </ns2:Declarant>
         <ns2:Period>{fiscalYear}</ns2:Period>
-        <Vsoft>vatYearClientsList</Vsoft>        
+        <Vsoft>vatYearClientsList</Vsoft>
     </ns2:ClientListing>
 </ns2:ClientListingConsignment>

@@ -30,7 +30,7 @@
        </cac:AdditionalDocumentReference>
        <cac:AccountingSupplierParty>
               <cac:Party>
-                     <cbc:EndpointID schemeID="0208">{supplierCompanyId}</cbc:EndpointID>                     
+                     <cbc:EndpointID schemeID="0208">{supplierCompanyId}</cbc:EndpointID>
                      <cac:PartyName>
                             <cbc:Name>{supplierRegistrationName}</cbc:Name>
                      </cac:PartyName>
@@ -50,7 +50,7 @@
                      </cac:PartyTaxScheme>
                      <cac:PartyLegalEntity>
                             <cbc:RegistrationName>{supplierRegistrationName}</cbc:RegistrationName>
-                            <cbc:CompanyID schemeID="0208">{supplierCompanyId}</cbc:CompanyID>                     
+                            <cbc:CompanyID schemeID="0208">{supplierCompanyId}</cbc:CompanyID>
                      </cac:PartyLegalEntity>
                      <cac:Contact>
                             <cbc:Telephone>{supplierTelephone}</cbc:Telephone>
@@ -59,7 +59,7 @@
        </cac:AccountingSupplierParty>
        <cac:AccountingCustomerParty>              <!-- <cbc:CustomerAssignedAccountID>{customerNumber}</cbc:CustomerAssignedAccountID> -->
               <cac:Party>
-		     <cbc:EndpointID schemeID="{customerSchemeId}">{customerCompanyId}</cbc:EndpointID>                     
+                     <cbc:EndpointID schemeID="{customerSchemeId}">{customerCompanyId}</cbc:EndpointID>
                      <cac:PartyName>
                             <cbc:Name>{customerRegistrationName}</cbc:Name>
                      </cac:PartyName>

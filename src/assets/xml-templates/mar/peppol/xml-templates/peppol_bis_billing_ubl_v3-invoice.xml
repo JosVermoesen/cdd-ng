@@ -6,15 +6,15 @@
        <cbc:ID>{invoiceNumber}</cbc:ID>
        <cbc:IssueDate>{invoiceDate}</cbc:IssueDate>
        <cbc:DueDate>{invoiceDueDate}</cbc:DueDate>
-       <cbc:InvoiceTypeCode listID="UNCL1001">{invoiceTypeCode}</cbc:InvoiceTypeCode>
-       <cbc:DocumentCurrencyCode listID="ISO4217">EUR</cbc:DocumentCurrencyCode>
+       <cbc:InvoiceTypeCode>{invoiceTypeCode}</cbc:InvoiceTypeCode>
+       <cbc:DocumentCurrencyCode>EUR</cbc:DocumentCurrencyCode>
+       <!-- TODO
+       <cbc:AccountingCost>4025:123:4343</cbc:AccountingCost>
+       <cbc:BuyerReference>0150abc</cbc:BuyerReference> -->
        <cac:OrderReference>
               <cbc:ID>{orderReference}</cbc:ID>
+              <cbc:SalesOrderID>{orderReference}</cbc:SalesOrderID>
        </cac:OrderReference>
-       <cac:AdditionalDocumentReference>
-              <cbc:ID>UBL.BE</cbc:ID>
-              <cbc:DocumentDescription>Admin-Consult 11.00.03.03</cbc:DocumentDescription>
-       </cac:AdditionalDocumentReference>
        <cac:AdditionalDocumentReference>
               <cbc:ID>{invoiceNumber}</cbc:ID>
               <cbc:DocumentDescription>CommercialInvoice</cbc:DocumentDescription>
@@ -24,7 +24,10 @@
        </cac:AdditionalDocumentReference>
        <cac:AccountingSupplierParty>
               <cac:Party>
-                     <cbc:EndpointID schemeID="0208">{supplierCompanyId}</cbc:EndpointID>                     
+                     <cbc:EndpointID schemeID="0208">{supplierCompanyId}</cbc:EndpointID>
+                     <cac:PartyIdentification>
+                            <cbc:ID>{supplierCompanyId}</cbc:ID>
+                     </cac:PartyIdentification>
                      <cac:PartyName>
                             <cbc:Name>{supplierRegistrationName}</cbc:Name>
                      </cac:PartyName>
@@ -37,23 +40,27 @@
                             </cac:Country>
                      </cac:PostalAddress>
                      <cac:PartyTaxScheme>
-                            <cbc:CompanyID>{supplierCompanyId}</cbc:CompanyID>
+                            <cbc:CompanyID>{supplierCompanyIdExtended}</cbc:CompanyID>
                             <cac:TaxScheme>
                                    <cbc:ID>{supplierTaxScheme}</cbc:ID>
                             </cac:TaxScheme>
                      </cac:PartyTaxScheme>
                      <cac:PartyLegalEntity>
-                            <cbc:RegistrationName>{supplierRegistrationName}</cbc:RegistrationName>                            
-                            <cbc:CompanyID schemeID="0208">{supplierCompanyId}</cbc:CompanyID>
+                            <cbc:RegistrationName>{supplierRegistrationName}</cbc:RegistrationName>
+                            <cbc:CompanyID>{supplierCompanyId}</cbc:CompanyID>
                      </cac:PartyLegalEntity>
                      <cac:Contact>
                             <cbc:Telephone>{supplierTelephone}</cbc:Telephone>
+                            <cbc:ElectronicMail>{supplierElectronicMail}</cbc:ElectronicMail>
                      </cac:Contact>
               </cac:Party>
        </cac:AccountingSupplierParty>
-       <cac:AccountingCustomerParty>              <!-- <cbc:CustomerAssignedAccountID>{customerNumber}</cbc:CustomerAssignedAccountID> -->
+       <cac:AccountingCustomerParty>
               <cac:Party>
-		     <cbc:EndpointID schemeID="{customerSchemeId}">{customerCompanyId}</cbc:EndpointID>                     
+                     <cbc:EndpointID schemeID="{customerSchemeId}">{customerCompanyId}</cbc:EndpointID>
+                     <cac:PartyIdentification>
+                            <cbc:ID>{customerCompanyId}</cbc:ID>
+                     </cac:PartyIdentification>
                      <cac:PartyName>
                             <cbc:Name>{customerRegistrationName}</cbc:Name>
                      </cac:PartyName>
@@ -66,20 +73,40 @@
                             </cac:Country>
                      </cac:PostalAddress>
                      <cac:PartyTaxScheme>
-                            <cbc:CompanyID>{customerCompanyId}</cbc:CompanyID>
+                            <cbc:CompanyID>{customerCompanyIdExtended}</cbc:CompanyID>
                             <cac:TaxScheme>
                                    <cbc:ID>{customerTaxScheme}</cbc:ID>
                             </cac:TaxScheme>
                      </cac:PartyTaxScheme>
                      <cac:PartyLegalEntity>
-                            <cbc:RegistrationName>{customerRegistrationName}</cbc:RegistrationName>                            
-                            <cbc:CompanyID schemeID="{customerSchemeId}">{customerCompanyId}</cbc:CompanyID>
+                            <cbc:RegistrationName>{customerRegistrationName}</cbc:RegistrationName>
+                            <cbc:CompanyID>{customerCompanyId}</cbc:CompanyID>
                      </cac:PartyLegalEntity>
                      <cac:Contact>
                             <cbc:ElectronicMail>{customerElectronicMail}</cbc:ElectronicMail>
                      </cac:Contact>
               </cac:Party>
        </cac:AccountingCustomerParty>
+       <!-- <cac:Delivery>
+        <cbc:ActualDeliveryDate>2017-11-01</cbc:ActualDeliveryDate>
+        <cac:DeliveryLocation>
+            <cbc:ID schemeID="0088">9483759475923478</cbc:ID>
+            <cac:Address>
+                <cbc:StreetName>Delivery street 2</cbc:StreetName>
+                <cbc:AdditionalStreetName>Building 56</cbc:AdditionalStreetName>
+                <cbc:CityName>Stockholm</cbc:CityName>
+                <cbc:PostalZone>21234</cbc:PostalZone>
+                <cac:Country>
+                    <cbc:IdentificationCode>SE</cbc:IdentificationCode>
+                </cac:Country>
+            </cac:Address>
+        </cac:DeliveryLocation>
+        <cac:DeliveryParty>
+            <cac:PartyName>
+                <cbc:Name>Delivery party Name</cbc:Name>
+            </cac:PartyName>
+        </cac:DeliveryParty>
+    </cac:Delivery> -->
        <cac:PaymentMeans>
               <cbc:PaymentMeansCode>{paymentMeansCode}</cbc:PaymentMeansCode>
               <cbc:PaymentID>{paymentId}</cbc:PaymentID>
