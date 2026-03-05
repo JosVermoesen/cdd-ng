@@ -1,38 +1,39 @@
 @if (loaded && domEntries.length === 0) {
-<div class="form-group py-2">
-  <pre class="card card-block card-header">{{
-    "CDDENTRIES.EmptyLabel" | translate
-  }}</pre>
-</div>
+  <div class="form-group py-2">
+    <pre class="card card-block card-header">{{
+      "CDDENTRIES.EmptyLabel" | translate
+    }}</pre>
+  </div>
 
-} @if (loaded && domEntries.length > 0) {
-<div class="form-group py-2">
-  <ul class="list-group">
-    <li
-      *ngFor="let entry of domEntries"
-      [class.list-group-item-secondary]="selectedDomEntry === entry"
-      class="row justify-content-start ms-2"
-    >
-      <div class="col-4">
-        <a>{{ entry.clientIban }}</a>
-      </div>
-      <div class="col-3">
-        <a>{{ entry.amount | currency : "EUR" }}</a>
-      </div>
-      <div class="col-4">
-        <a (click)="onSelect(entry)" href="#">{{ entry.clientName }}</a>
-      </div>
-      <div class="col-1">
-        <button
-          type="button"
-          class="btn-close"
-          aria-label="Close"
-          (click)="deleteThisModal(templatedeletethis, entry)"
-        ></button>
-      </div>
-    </li>
-  </ul>
-</div>
+  } @if (loaded && domEntries.length > 0) {
+  <div class="form-group py-2">
+    <ul class="list-group">
+      @for (entry of domEntries; track entry) {
+        <li
+          [class.list-group-item-secondary]="selectedDomEntry === entry"
+          class="row justify-content-start ms-2"
+          >
+          <div class="col-4">
+            <a>{{ entry.clientIban }}</a>
+          </div>
+          <div class="col-3">
+            <a>{{ entry.amount | currency : "EUR" }}</a>
+          </div>
+          <div class="col-4">
+            <a (click)="onSelect(entry)" href="#">{{ entry.clientName }}</a>
+          </div>
+          <div class="col-1">
+            <button
+              type="button"
+              class="btn-close"
+              aria-label="Close"
+              (click)="deleteThisModal(templatedeletethis, entry)"
+            ></button>
+          </div>
+        </li>
+      }
+    </ul>
+  </div>
 
 }
 
@@ -43,7 +44,7 @@
       class="btn btn-success me-1"
       [disabled]="!domEntries.length"
       (click)="openModalExport()"
-    >
+      >
       {{ "CDDENTRIES.ExportButtonLabel" | translate }}
       {{ totalAmount | currency : "EUR" }} ({{ domEntries.length }})
     </button>
@@ -51,7 +52,7 @@
       type="button"
       class="btn btn-warning me-1"
       (click)="entriesModalLoad()"
-    >
+      >
       {{ "CDDENTRIES.LoadButtonLabel" | translate }}
     </button>
     <button
@@ -59,7 +60,7 @@
       class="btn btn-primary me-1"
       [disabled]="!domEntries.length"
       (click)="entriesModalSave()"
-    >
+      >
       {{ "CDDENTRIES.SaveButtonLabel" | translate }}
     </button>
     <button
@@ -67,7 +68,7 @@
       class="btn btn-danger"
       [disabled]="!domEntries.length"
       (click)="deleteAllModal(templatedeleteall)"
-    >
+      >
       {{ "CDDENTRIES.DeleteButtonLabel" | translate }}
     </button>
   </div>
@@ -79,14 +80,14 @@
         type="button"
         class="btn btn-default"
         (click)="confirmDeleteThis()"
-      >
+        >
         {{ "CDDENTRIES.YesLabel" | translate }}
       </button>
       <button
         type="button"
         class="btn btn-primary"
         (click)="declineDeleteThis()"
-      >
+        >
         {{ "CDDENTRIES.NoLabel" | translate }}
       </button>
     </div>
@@ -99,14 +100,14 @@
         type="button"
         class="btn btn-default"
         (click)="confirmDeleteAll()"
-      >
+        >
         {{ "CDDENTRIES.YesLabel" | translate }}
       </button>
       <button
         type="button"
         class="btn btn-primary"
         (click)="declineDeleteAll()"
-      >
+        >
         {{ "CDDENTRIES.NoLabel" | translate }}
       </button>
     </div>

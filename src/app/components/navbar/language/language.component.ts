@@ -5,13 +5,13 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 
 import { LanguageService } from './../../../services/language.service';
 import { Language } from 'src/app/models/language';
-import { NgFor } from '@angular/common';
+
 
 @Component({
   selector: 'app-language',
   templateUrl: './language.component.html',
   styleUrls: ['./language.component.css'],
-  imports: [NgFor],
+  imports: [],
 })
 export class LanguageComponent implements OnInit {
   title!: string;

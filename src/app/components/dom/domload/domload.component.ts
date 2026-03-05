@@ -10,14 +10,14 @@ import { Subject } from 'rxjs';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 
 import { DomEntry } from './../../../models/domEntry';
-import { NgFor, NgIf } from '@angular/common';
+
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-domload',
   templateUrl: './domload.component.html',
   styleUrls: ['./domload.component.css'],
-  imports: [ReactiveFormsModule, NgFor, NgIf, TranslateModule],
+  imports: [ReactiveFormsModule, TranslateModule],
 })
 export class DomLoadComponent implements OnInit {
   bsModalRef = inject(BsModalRef);

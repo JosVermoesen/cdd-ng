@@ -19,7 +19,7 @@ import { Guid } from 'src/app/functions/guid';
 
 import { IbanCheck } from 'src/app/functions/ibancheck';
 import { DomEntriesComponent } from '../domentries/domentries.component';
-import { NgIf } from '@angular/common';
+
 import {
   BsDatepickerInputDirective,
   BsDatepickerDirective,
@@ -35,12 +35,11 @@ import { DomToolsComponent } from '../domtools/domtools.component';
     TabDirective,
     DomEntriesComponent,
     ReactiveFormsModule,
-    NgIf,
     BsDatepickerInputDirective,
     BsDatepickerDirective,
     DomToolsComponent,
-    TranslateModule,
-  ],
+    TranslateModule
+],
 })
 export class DomEntryComponent implements OnInit {
   readonly staticTabs = viewChild.required<TabsetComponent>('staticTabs');

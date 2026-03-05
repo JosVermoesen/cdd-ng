@@ -10,14 +10,14 @@ import { Subject } from 'rxjs';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 
 import { DomEntry } from './../../../models/domEntry';
-import { NgIf } from '@angular/common';
+
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-domsave',
   templateUrl: './domsave.component.html',
   styleUrls: ['./domsave.component.css'],
-  imports: [ReactiveFormsModule, NgIf, TranslateModule],
+  imports: [ReactiveFormsModule, TranslateModule],
 })
 export class DomSaveComponent implements OnInit {
   bsModalRef = inject(BsModalRef);

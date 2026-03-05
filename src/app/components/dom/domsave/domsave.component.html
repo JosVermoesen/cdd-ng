@@ -20,7 +20,7 @@
           class="form-select"
           id="inputGroupSelect01"
           formControlName="groupType"
-        >
+          >
           <option value="cddClient_">
             {{ "CDDSAVE.ClientLabel" | translate }}
           </option>
@@ -35,50 +35,54 @@
         class="form-control"
         formControlName="name"
         placeholder="{{ 'CDDSAVE.DescriptionLabel' | translate }}"
-      />
-    </div>
-
-    <div class="form-group">
-      <div class="form-check">
-        <label class="form-check-label">
-          <input
-            type="checkbox"
-            class="form-check-input"
-            formControlName="clearEntriesAfterSaving"
-            value=""
-          />
-          {{ "CDDSAVE.DeleteAfterSavingCheckbox" | translate }}</label
-        >
+        />
       </div>
-    </div>
 
-    <div class="form-group">
-      <div *ngIf="!locationReload">
-        <button
-          type="button"
-          class="btn btn-primary"
-          [disabled]="!domSaveForm.valid"
-          (click)="onSubmit()"
-        >
-          {{ "CDDSAVE.SaveButtonLabel" | translate }}
+      <div class="form-group">
+        <div class="form-check">
+          <label class="form-check-label">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              formControlName="clearEntriesAfterSaving"
+              value=""
+              />
+              {{ "CDDSAVE.DeleteAfterSavingCheckbox" | translate }}</label
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            @if (!locationReload) {
+              <div>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  [disabled]="!domSaveForm.valid"
+                  (click)="onSubmit()"
+                  >
+                  {{ "CDDSAVE.SaveButtonLabel" | translate }}
+                </button>
+              </div>
+            }
+
+            @if (locationReload) {
+              <div>
+                <button type="button" class="btn btn-primary" disabled>
+                  <span
+                    class="spinner-grow spinner-grow-sm"
+                    role="status"
+                    aria-hidden="true"
+                  ></span>
+                  {{ "CDDSAVE.SaveButtonLabel" | translate }}
+                </button>
+              </div>
+            }
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">
+          {{ closeBtnName }}
         </button>
       </div>
-
-      <div *ngIf="locationReload">
-        <button type="button" class="btn btn-primary" disabled>
-          <span
-            class="spinner-grow spinner-grow-sm"
-            role="status"
-            aria-hidden="true"
-          ></span>
-          {{ "CDDSAVE.SaveButtonLabel" | translate }}
-        </button>
-      </div>
-    </div>
-  </form>
-</div>
-<div class="modal-footer">
-  <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">
-    {{ closeBtnName }}
-  </button>
-</div>

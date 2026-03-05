@@ -12,14 +12,14 @@ import { saveAs } from 'file-saver';
 import { format } from 'date-fns';
 
 import { DomSettingsComponent } from '../domsettings/domsettings.component';
-import { NgIf, NgFor, JsonPipe } from '@angular/common';
+import { JsonPipe } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-domtools',
   templateUrl: './domtools.component.html',
   styleUrls: ['./domtools.component.css'],
-  imports: [NgIf, NgFor, ReactiveFormsModule, JsonPipe, TranslateModule],
+  imports: [ReactiveFormsModule, JsonPipe, TranslateModule],
 })
 export class DomToolsComponent {
   bsModalRef!: BsModalRef;

@@ -9,13 +9,13 @@ import { DomEntry } from '../../../models/domEntry';
 import { DomSaveComponent } from './../domsave/domsave.component';
 import { DomLoadComponent } from '../domload/domload.component';
 import { DomExportComponent } from './../domexport/domexport.component';
-import { NgFor, CurrencyPipe } from '@angular/common';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-domentries',
   templateUrl: './domentries.component.html',
   styleUrls: ['./domentries.component.css'],
-  imports: [NgFor, CurrencyPipe, TranslateModule],
+  imports: [CurrencyPipe, TranslateModule],
 })
 export class DomEntriesComponent implements OnInit {
   bsModalRef!: BsModalRef;

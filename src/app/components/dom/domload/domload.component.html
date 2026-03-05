@@ -20,7 +20,7 @@
           (change)="onChangeGroupType($event.target)"
           class="form-select"
           id="select01"
-        >
+          >
           <option [selected] value="choose" selected>
             {{ "CDDLOAD.ChooseGroupLabel" | translate }}
           </option>
@@ -46,10 +46,12 @@
           class="form-select"
           id="inputGroupSelect02"
           formControlName="name"
-        >
-          <option *ngFor="let name of localStorageItems" [value]="name">
-            {{ name }}
-          </option>
+          >
+          @for (name of localStorageItems; track name) {
+            <option [value]="name">
+              {{ name }}
+            </option>
+          }
         </select>
       </div>
 
@@ -59,48 +61,52 @@
             type="checkbox"
             class="form-check-input"
             formControlName="replaceEntries"
-          />{{ "CDDLOAD.ReplaceEntriesCheckbox" | translate }}
-        </label>
-      </div>
+            />{{ "CDDLOAD.ReplaceEntriesCheckbox" | translate }}
+          </label>
+        </div>
 
-      <div class="form-check">
-        <label class="form-check-label">
-          <input
-            type="checkbox"
-            class="form-check-input"
-            formControlName="deleteAfterLoading"
-          />{{ "CDDLOAD.DeleteAfterLoadingCheckbox" | translate }}
-        </label>
-      </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              formControlName="deleteAfterLoading"
+              />{{ "CDDLOAD.DeleteAfterLoadingCheckbox" | translate }}
+            </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          @if (!locationReload) {
+            <div>
+              <button
+                type="button"
+                class="btn btn-primary"
+                [disabled]="!domLoadForm.valid"
+                (click)="onSubmit()"
+                >
+                {{ "CDDLOAD.LoadButtonLabel" | translate }}
+              </button>
+            </div>
+          }
+
+          @if (locationReload) {
+            <div>
+              <button type="button" class="btn btn-primary" disabled>
+                <span
+                  class="spinner-grow spinner-grow-sm"
+                  role="status"
+                  aria-hidden="true"
+                ></span>
+                {{ "CDDLOAD.LoadButtonLabel" | translate }}
+              </button>
+            </div>
+          }
+        </div>
+      </form>
     </div>
-
-    <div class="form-group">
-      <div *ngIf="!locationReload">
-        <button
-          type="button"
-          class="btn btn-primary"
-          [disabled]="!domLoadForm.valid"
-          (click)="onSubmit()"
-        >
-          {{ "CDDLOAD.LoadButtonLabel" | translate }}
-        </button>
-      </div>
-
-      <div *ngIf="locationReload">
-        <button type="button" class="btn btn-primary" disabled>
-          <span
-            class="spinner-grow spinner-grow-sm"
-            role="status"
-            aria-hidden="true"
-          ></span>
-          {{ "CDDLOAD.LoadButtonLabel" | translate }}
-        </button>
-      </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">
+        {{ closeBtnName }}
+      </button>
     </div>
-  </form>
-</div>
-<div class="modal-footer">
-  <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">
-    {{ closeBtnName }}
-  </button>
-</div>
