@@ -1,0 +1,30 @@
+<!-- ====== TRANSACTION — Unstructured ====== -->
+<CdtTrfTxInf>
+    <PmtId>
+        <InstrId>{serialNumber}</InstrId>
+        <EndToEndId>{endToEndId}</EndToEndId>
+    </PmtId>
+
+    <Amt>
+        <InstdAmt Ccy="EUR">{amount}</InstdAmt>
+    </Amt>
+
+    <!-- <CdtrAgt>
+        <FinInstnId>
+            <BIC>{creditorBIC}</BIC>
+        </FinInstnId>
+    </CdtrAgt> -->
+
+    <Cdtr>
+        <Nm>{creditorName}</Nm>
+    </Cdtr>
+    <CdtrAcct>
+        <Id>
+            <IBAN>{creditorIBAN}</IBAN>
+        </Id>
+    </CdtrAcct>
+
+    <RmtInf>
+        <Ustrd>{manualReference}</Ustrd>
+    </RmtInf>
+</CdtTrfTxInf>

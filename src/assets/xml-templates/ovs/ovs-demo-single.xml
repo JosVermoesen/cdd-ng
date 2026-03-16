@@ -18,6 +18,7 @@
                 </Id>
             </InitgPty>
         </GrpHdr>
+
         <PmtInf>
             <PmtInfId> ABC/4560/2010-12-15</PmtInfId>
             <PmtMtd>TRF</PmtMtd>

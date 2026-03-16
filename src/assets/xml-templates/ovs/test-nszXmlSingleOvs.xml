@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CstmrCdtTrfInitn>
+    <GrpHdr>
+      <!-- Hier per geadresseerde-->
+      <MsgId>BE-OVS-20260305-001TEST2</MsgId>
+      <!-- Verwerkingsdatum xml bestand-->
+      <CreDtTm>2026-03-05T09:33:00</CreDtTm>
+      <NbOfTxs>1</NbOfTxs>
+      <CtrlSum>200.00</CtrlSum>
+      <InitgPty>
+        <Nm>Zakenkantoor Hedwig Roelandt en Jos Vermoesen bv</Nm>
+      </InitgPty>
+    </GrpHdr>
+
+    <PmtInf>
+      <PmtInfId>PMT-20260305-001</PmtInfId>
+      <PmtMtd>TRF</PmtMtd>
+      <BtchBookg>true</BtchBookg>
+      <NbOfTxs>1</NbOfTxs>
+      <CtrlSum>200.00</CtrlSum>
+
+      <PmtTpInf>
+        <SvcLvl>
+          <Cd>SEPA</Cd>
+        </SvcLvl>
+      </PmtTpInf>
+
+      <!-- Gewenste uitvoeringsdatum -->
+      <ReqdExctnDt>2026-03-06</ReqdExctnDt>
+
+      <!-- Debiteur (opdrachtgever) -->
+      <Dbtr>
+        <Nm>Zakenkantoor Hedwig Roelandt en Jos Vermoesen bv</Nm>
+      </Dbtr>
+      <DbtrAcct>
+        <Id>
+          <IBAN>BE83891854037015</IBAN>
+        </Id>
+        <Ccy>EUR</Ccy>
+      </DbtrAcct>
+      <DbtrAgt>
+        <FinInstnId>
+          <BIC>VDSPBE91</BIC>
+        </FinInstnId>
+      </DbtrAgt>
+
+      <!-- Kostenverdeling -->
+      <ChrgBr>SLEV</ChrgBr>
+
+      <!-- Eén overschrijving -->
+      <CdtTrfTxInf>
+        <PmtId>
+          <InstrId>INSTR-0001</InstrId>
+          <EndToEndId>000001</EndToEndId>
+        </PmtId>
+        <Amt>
+          <InstdAmt Ccy="EUR">200.00</InstdAmt>
+        </Amt>
+
+        <!-- Bank begunstigde -->
+        <CdtrAgt>
+          <FinInstnId>
+            <BIC>BBRUBEBB</BIC>
+          </FinInstnId>
+        </CdtrAgt>
+
+        <!-- Begunstigde -->
+        <Cdtr>
+          <Nm>Neutraal Syndicaat voor Zelfstandigen vzw</Nm>
+        </Cdtr>
+        <CdtrAcct>
+          <Id>
+            <IBAN>BE65310154037096</IBAN>
+          </Id>
+        </CdtrAcct>
+
+        <!-- Ofwel mededeling (on-gestructureerd) -->
+        <RmtInf>
+          <Ustrd>009089/AVT</Ustrd>
+        </RmtInf>
+
+        <!-- Ofwel mededeling (gestructureerd) -->
+        <!-- <RmtInf>
+          <Strd>
+            <CdtrRefInf>
+              <Tp>
+                <CdOrPrtry>
+                  <Cd>SCOR</Cd>
+                </CdOrPrtry>
+                <Issr>BBA</Issr>
+              </Tp>
+              <Ref>+++123/4567/89012+++</Ref>
+            </CdtrRefInf>
+          </Strd>
+        </RmtInf> -->
+
+      </CdtTrfTxInf>
+    </PmtInf>
+  </CstmrCdtTrfInitn>
+</Document>

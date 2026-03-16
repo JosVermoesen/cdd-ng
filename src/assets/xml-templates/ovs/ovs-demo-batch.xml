@@ -18,6 +18,7 @@
                 </Id>
             </InitgPty>
         </GrpHdr>
+
         <PmtInf>
             <PmtInfId> ABC/4560/2010-12-18</PmtInfId>
             <PmtMtd>TRF</PmtMtd>
@@ -41,6 +42,7 @@
                     <BIC>AAAABE33</BIC>
                 </FinInstnId>
             </DbtrAgt>
+            
             <CdtTrfTxInf>
                 <PmtId>
                     <EndToEndId>ABC/4562/2010-12-18</EndToEndId>

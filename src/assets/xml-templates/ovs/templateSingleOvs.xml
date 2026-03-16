@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xmlns="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <CstmrCdtTrfInitn>
+    <!-- ====== HEADER ====== -->
+    <GrpHdr>
+      <MsgId>VSOFT-{batchId}</MsgId>
+      <!-- Verwerkingsdatum xml bestand-->
+      <CreDtTm>{creationDateTime}</CreDtTm>
+      <!-- Number of transactions -->
+      <NbOfTxs>{numberOfTransactions}</NbOfTxs>
+      <CtrlSum>{controlSum}</CtrlSum>
+      <InitgPty>
+        <!-- Initiating party example 
+              Zakenkantoor Hedwig Roelandt en Jos Vermoesen bv
+        -->
+        <Nm>{initiatingPartyName}</Nm>
+      </InitgPty>
+    </GrpHdr>
+
+    <!-- ====== PAYMENT INFORMATION ====== -->
+    <PmtInf>
+      <!-- Payment information example PMT-20260305-001 -->
+      <PmtInfId>{paymentInformationId}</PmtInfId>
+      <PmtMtd>TRF</PmtMtd>
+      <BtchBookg>true</BtchBookg>
+      <NbOfTxs>{numberOfTransactions}</NbOfTxs>
+      <CtrlSum>{controlSum}</CtrlSum>
+
+      <PmtTpInf>
+        <SvcLvl>
+          <Cd>SEPA</Cd>
+        </SvcLvl>
+      </PmtTpInf>
+
+      <!-- Gewenste uitvoeringsdatum -->
+      <ReqdExctnDt>{requestedExecutionDate}</ReqdExctnDt>
+
+      <!-- Debiteur (opdrachtgever) -->
+      <Dbtr>
+        <!-- Debtor name example: Zakenkantoor Hedwig Roelandt en Jos Vermoesen bv -->
+        <Nm>{debtorName}</Nm>
+      </Dbtr>
+      <DbtrAcct>
+        <Id>
+          <!-- Debtor IBAN example: BE83891854037015 -->
+          <IBAN>{debtorIBAN}</IBAN>
+        </Id>
+        <Ccy>EUR</Ccy>
+      </DbtrAcct>
+      <DbtrAgt>
+        <FinInstnId>
+          <BIC>{debtorBIC}</BIC>
+        </FinInstnId>
+      </DbtrAgt>
+
+      <!-- Kostenverdeling -->
+      <ChrgBr>SLEV</ChrgBr>
+
+      <!-- Eén overschrijving -->
+      <CdtTrfTxInf>
+        <PmtId>
+          <InstrId>INSTR-0001</InstrId>
+          <EndToEndId>000001</EndToEndId>
+        </PmtId>
+        <Amt>
+          <InstdAmt Ccy="EUR">{transactionAmount}</InstdAmt>
+        </Amt>
+
+        <!-- Bank begunstigde -->
+        <CdtrAgt>
+          <FinInstnId>
+            <BIC>{creditorBIC}</BIC>
+          </FinInstnId>
+        </CdtrAgt>
+
+        <!-- Begunstigde -->
+        <Cdtr>
+          <Nm>{creditorName}</Nm>
+        </Cdtr>
+        <CdtrAcct>
+          <Id>
+            <IBAN>{creditorIBAN}</IBAN>
+          </Id>
+        </CdtrAcct>
+
+        <!-- Ofwel mededeling (on-gestructureerd) -->
+        <RmtInf>
+          <!-- Remittance information example: Invoice 123456 -->
+          <Ustrd>{remittanceInformation}</Ustrd>
+        </RmtInf>
+
+        <!-- Ofwel mededeling (gestructureerd) -->
+        <!-- <RmtInf>
+          <Strd>
+            <CdtrRefInf>
+              <Tp>
+                <CdOrPrtry>
+                  <Cd>SCOR</Cd>
+                </CdOrPrtry>
+                <Issr>BBA</Issr>
+              </Tp>
+              <Ref>+++123/4567/89012+++</Ref>
+            </CdtrRefInf>
+          </Strd>
+        </RmtInf> -->
+
+      </CdtTrfTxInf>
+    </PmtInf>
+  </CstmrCdtTrfInitn>
+</Document>
