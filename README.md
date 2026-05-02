@@ -12,7 +12,7 @@ Your data is stored as json files inside the localStorage of the browser you are
 - [Install NVM for different versions of NodeJS)](https://github.com/coreybutler/nvm-windows/releases)
 - In terminal `nvm install 22.14.0` and `nvm use 22.14.0`
 
-- [Angular CLI v21.2.11)](https://www.npmjs.com/package/@angular/cli): `npm i -g @angular/cli@21.2.11`
+- [Angular CLI v21)](https://www.npmjs.com/package/@angular/cli): `npm i -g @angular/cli@21`
 - [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Favorite vscode extensions and settings
