@@ -35,7 +35,7 @@ export const appConfig: ApplicationConfig = {
       /* ButtonsModule.forRoot(),
       TabsModule.forRoot(),
       BsDatepickerModule.forRoot(), */
-      ModalModule.forRoot()
+      // ModalModule.forRoot()
     ),
     DomService,
     /* LanguageService, */
