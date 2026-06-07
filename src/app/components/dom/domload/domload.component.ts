@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
@@ -17,6 +17,7 @@ import { TranslateModule } from '@ngx-translate/core';
   selector: 'app-domload',
   templateUrl: './domload.component.html',
   styleUrls: ['./domload.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [ReactiveFormsModule, TranslateModule],
 })
 export class DomLoadComponent implements OnInit {

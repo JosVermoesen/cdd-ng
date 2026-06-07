@@ -34,16 +34,16 @@ Your data is stored as json files inside the localStorage of the browser you are
 
 ## NPM packages used for this app
 
-- [bootstrap(v5.3.3)](https://www.npmjs.com/package/bootstrap): `npm i bootstrap@5`
-- [ngx-bootstrap](https://www.npmjs.com/package/ngx-bootstrap): `npm i ngx-bootstrap@19` (or greater)
+- [bootstrap(v5.3.8)](https://www.npmjs.com/package/bootstrap): `npm i bootstrap@5`
+- [ngx-bootstrap](https://www.npmjs.com/package/ngx-bootstrap): `npm i ngx-bootstrap@21.2.0`
 - [file-saver](https://www.npmjs.com/package/file-saver): `npm i file-saver`
 - [@types/file-saver](https://www.npmjs.com/package/@types/file-saver): `npm i @types/file-saver`
 - [jszip](https://www.npmjs.com/package/jszip): `npm i jszip`
 - [date-fns](https://www.npmjs.com/package/date-fns): `npm i date-fns`
-- [@ngx-translate/core](https://www.npmjs.com/package/@ngx-translate/core): `npm i @ngx-translate/core@19`
-- [@ngx-translate/http-loader](https://www.npmjs.com/package/@ngx-translate/http-loader): `npm i @ngx-translate/http-loader@15`
+- [@ngx-translate/core](https://www.npmjs.com/package/@ngx-translate/core): `npm i @ngx-translate/core@16`
+- [@ngx-translate/http-loader](https://www.npmjs.com/package/@ngx-translate/http-loader): `npm i @ngx-translate/http-loader@16`
 
-- install all packages in one commandline: `npm i bootstrap@5 ngx-bootstrap@19 file-saver @types/file-saver jszip date-fns @ngx-translate/core@19 @ngx-translate/http-loader@15`
+- install all packages in one commandline: `npm i bootstrap@5 ngx-bootstrap@21.2.0 file-saver @types/file-saver jszip date-fns @ngx-translate/core@16 @ngx-translate/http-loader@16`
 
 ## styles.css
 
@@ -113,6 +113,8 @@ IF YOU WANT YOUR APP CHANGED TO STANDALONE COMPONENTS YOU MUST RUN THESE MIGRATI
 ## Updating to latest Angular 21
 
 This app is now on Angular 21. Before starting an update, always commit first any valid open changes
+
+Note: `ngx-bootstrap@21.2.0` currently targets Angular 21.x. Upgrading Angular beyond 21 can cause runtime DI errors unless `ngx-bootstrap` adds support for that Angular version.
 
 update to latest Angular 21:
 `ng update @angular/cli@21 @angular/core@21`

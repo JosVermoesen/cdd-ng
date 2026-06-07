@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
@@ -9,6 +9,7 @@ import { LanguageComponent } from './language/language.component';
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [TranslateModule],
 })
 export class NavbarComponent {

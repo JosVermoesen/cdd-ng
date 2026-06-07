@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Subject } from 'rxjs';
 
 import { BsModalRef } from 'ngx-bootstrap/modal';
@@ -11,6 +11,7 @@ import { Language } from 'src/app/models/language';
   selector: 'app-language',
   templateUrl: './language.component.html',
   styleUrls: ['./language.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [],
 })
 export class LanguageComponent implements OnInit {

@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, viewChild } from '@angular/core';
+import { Component, inject, OnInit, viewChild, ChangeDetectionStrategy } from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
@@ -30,6 +30,7 @@ import { DomToolsComponent } from '../domtools/domtools.component';
   selector: 'app-domentry',
   templateUrl: './domentry.component.html',
   styleUrls: ['./domentry.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     TabsetComponent,
     TabDirective,

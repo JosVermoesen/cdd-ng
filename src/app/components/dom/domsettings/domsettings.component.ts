@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
@@ -19,6 +19,7 @@ import { format } from 'date-fns';
   selector: 'app-domsettings',
   templateUrl: './domsettings.component.html',
   styleUrls: ['./domsettings.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [ReactiveFormsModule, TranslateModule],
 })
 export class DomSettingsComponent implements OnInit {

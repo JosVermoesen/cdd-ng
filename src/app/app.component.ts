@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { LanguageService } from './services/language.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { DomEntryComponent } from './components/dom/domentry/domentry.component';
@@ -7,6 +7,7 @@ import { DomEntryComponent } from './components/dom/domentry/domentry.component'
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [NavbarComponent, DomEntryComponent],
 })
 export class AppComponent implements OnInit {

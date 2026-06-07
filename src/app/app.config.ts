@@ -1,7 +1,7 @@
 import {
   HttpClient,
   provideHttpClient,
-  withInterceptorsFromDi,
+  withInterceptorsFromDi
 } from '@angular/common/http';
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';

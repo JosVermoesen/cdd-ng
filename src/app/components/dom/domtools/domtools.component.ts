@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Component, inject, TemplateRef } from '@angular/core';
+import { Component, inject, TemplateRef, ChangeDetectionStrategy } from '@angular/core';
 
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
 
@@ -19,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   selector: 'app-domtools',
   templateUrl: './domtools.component.html',
   styleUrls: ['./domtools.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [ReactiveFormsModule, JsonPipe, TranslateModule],
 })
 export class DomToolsComponent {

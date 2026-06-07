@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Component, inject, OnInit, TemplateRef } from '@angular/core';
+import { Component, inject, OnInit, TemplateRef, ChangeDetectionStrategy } from '@angular/core';
 
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
@@ -15,6 +15,7 @@ import { CurrencyPipe } from '@angular/common';
   selector: 'app-domentries',
   templateUrl: './domentries.component.html',
   styleUrls: ['./domentries.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [CurrencyPipe, TranslateModule],
 })
 export class DomEntriesComponent implements OnInit {

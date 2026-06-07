@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import {
   FormGroup,
   Validators,
@@ -27,6 +27,7 @@ import { TranslateModule } from '@ngx-translate/core';
   selector: 'app-domexport',
   templateUrl: './domexport.component.html',
   styleUrls: ['./domexport.component.css'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     ReactiveFormsModule,
     BsDatepickerInputDirective,
