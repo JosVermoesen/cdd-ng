@@ -1,5 +1,21 @@
 # Creditors Direct Debit - Domiciliëringen Schuldeiser
 
+## Warning for Microsoft Edge users
+
+Microsoft Edge users may experience issues with generating .xml files for SEPA Direct Debit. This is due to a security feature in Microsoft Edge that blocks certain file downloads. If you encounter this issue, please try using a different browser such as Google Chrome or Mozilla Firefox to generate the .xml files or follow these steps to allow the download in Microsoft Edge:
+
+* Create with notepad a new file Enable_cdd_vsoft_be_XML_Downloads.reg and copy the following content into it:
+
+```text
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Edge\ExemptFileTypeDownloadWarnings]
+"1"="{\"file_extension\": \"xml\", \"domains\": [\"https://cdd.vsoft.be\"]}"
+
+```
+
+* Save the file and double-click it to add the registry entry.
+
 ## Getting started for users
 
 ![CDD](img/cdd.png)
