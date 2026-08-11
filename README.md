@@ -1,5 +1,12 @@
 # Creditors Direct Debit - Domiciliëringen Schuldeiser
 
+## Getting started for users
+
+![CDD](img/cdd.png)
+
+You can use directly on [demo site](https://cdd.vsoft.be)
+Your data is stored as json files inside the localStorage of the browser you are using. With jsZip you can backup as zip file and/or transfert your data to other browsers and/or other computers
+
 ## Warning for Microsoft Edge users
 
 Microsoft Edge users may experience issues with generating .xml files for SEPA Direct Debit. This is due to a security feature in Microsoft Edge that blocks certain file downloads. If you encounter this issue, please try using a different browser such as Google Chrome or Mozilla Firefox to generate the .xml files or follow these steps to allow the download in Microsoft Edge:
@@ -15,13 +22,6 @@ Windows Registry Editor Version 5.00
 ```
 
 * Save the file and double-click it to add the registry entry.
-
-## Getting started for users
-
-![CDD](img/cdd.png)
-
-You can use directly on [demo site](https://cdd.vsoft.be)
-Your data is stored as json files inside the localStorage of the browser you are using. With jsZip you can backup as zip file and/or transfert your data to other browsers and/or other computers
 
 ## Development Tools used for this app on april 2026
 
