@@ -21,7 +21,7 @@ Windows Registry Editor Version 5.00
 
 ```
 
-* Save the file and double-click it to add the registry entry.
+Save the file and double-click it to add the registry entry.
 
 ## Development Tools used for this app on april 2026
 
