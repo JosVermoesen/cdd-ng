@@ -1,7 +1,8 @@
 import {
   HttpClient,
   provideHttpClient,
-  withInterceptorsFromDi
+  withInterceptorsFromDi,
+  withXhr
 } from '@angular/common/http';
 import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -40,7 +41,7 @@ export const appConfig: ApplicationConfig = {
     DomService,
     /* LanguageService, */
     /* BsModalRef, */
-    provideHttpClient(withInterceptorsFromDi()),
+    provideHttpClient(withXhr(), withInterceptorsFromDi()),
     provideAnimations(),
   ],
 };

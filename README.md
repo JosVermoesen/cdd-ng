@@ -25,41 +25,41 @@ Your data is stored as json files inside the localStorage of the browser you are
 
 ## Development Tools used for this app on april 2026
 
-- [Install NVM for different versions of NodeJS)](https://github.com/coreybutler/nvm-windows/releases)
-- In terminal `nvm install 22.14.0` and `nvm use 22.14.0`
+* [Install NVM for different versions of NodeJS)](https://github.com/coreybutler/nvm-windows/releases)
+* In terminal `nvm install 22.14.0` and `nvm use 22.14.0`
 
-- [Angular CLI v21)](https://www.npmjs.com/package/@angular/cli): `npm i -g @angular/cli@21`
-- [Visual Studio Code](https://code.visualstudio.com/)
+* [Angular CLI v22)](https://www.npmjs.com/package/@angular/cli): `npm i -g @angular/cli@22`
+* [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Favorite vscode extensions and settings
 
-- [MarkDown Lint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
-- [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template)
-- [XML Tools](https://marketplace.visualstudio.com/items?itemName=DotJoshJohnson.xml)
-- [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer)
-- In settings 'brackets', activate Bracket Pair Colorization and Editor guides true
-- In settings 'auto close', set 'Auto Closing Brackets' and 'Auto Closing Quotes' to 'always'
+* [MarkDown Lint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
+* [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template)
+* [XML Tools](https://marketplace.visualstudio.com/items?itemName=DotJoshJohnson.xml)
+* [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer)
+* In settings 'brackets', activate Bracket Pair Colorization and Editor guides true
+* In settings 'auto close', set 'Auto Closing Brackets' and 'Auto Closing Quotes' to 'always'
 
 ## Getting started for developers
 
-- Clone this repository: `git clone https://github.com/JosVermoesen/cdd-ng.git`.
-- Run `npm install` inside the project root.
-- Run `ng serve -o` in a terminal from the project root.
-- If scripts are disabled, open Powershell as administrator and run `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser` first!
-- Profit. :tada:
+* Clone this repository: `git clone https://github.com/JosVermoesen/cdd-ng.git`.
+* Run `npm install` inside the project root.
+* Run `ng serve -o` in a terminal from the project root.
+* If scripts are disabled, open Powershell as administrator and run `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser` first!
+* Profit. :tada:
 
 ## NPM packages used for this app
 
-- [bootstrap(v5.3.8)](https://www.npmjs.com/package/bootstrap): `npm i bootstrap@5`
-- [ngx-bootstrap](https://www.npmjs.com/package/ngx-bootstrap): `npm i ngx-bootstrap@21.2.0`
-- [file-saver](https://www.npmjs.com/package/file-saver): `npm i file-saver`
-- [@types/file-saver](https://www.npmjs.com/package/@types/file-saver): `npm i @types/file-saver`
-- [jszip](https://www.npmjs.com/package/jszip): `npm i jszip`
-- [date-fns](https://www.npmjs.com/package/date-fns): `npm i date-fns`
-- [@ngx-translate/core](https://www.npmjs.com/package/@ngx-translate/core): `npm i @ngx-translate/core@16`
-- [@ngx-translate/http-loader](https://www.npmjs.com/package/@ngx-translate/http-loader): `npm i @ngx-translate/http-loader@16`
+* [bootstrap(v5.3.8)](https://www.npmjs.com/package/bootstrap): `npm i bootstrap@5`
+* [ngx-bootstrap](https://www.npmjs.com/package/ngx-bootstrap): `npm i ngx-bootstrap@22`
+* [file-saver](https://www.npmjs.com/package/file-saver): `npm i file-saver`
+* [@types/file-saver](https://www.npmjs.com/package/@types/file-saver): `npm i @types/file-saver`
+* [jszip](https://www.npmjs.com/package/jszip): `npm i jszip`
+* [date-fns](https://www.npmjs.com/package/date-fns): `npm i date-fns`
+* [@ngx-translate/core](https://www.npmjs.com/package/@ngx-translate/core): `npm i @ngx-translate/core@16`
+* [@ngx-translate/http-loader](https://www.npmjs.com/package/@ngx-translate/http-loader): `npm i @ngx-translate/http-loader@16`
 
-- install all packages in one commandline: `npm i bootstrap@5 ngx-bootstrap@21.2.0 file-saver @types/file-saver jszip date-fns @ngx-translate/core@16 @ngx-translate/http-loader@16`
+* install all packages in one commandline: `npm i bootstrap@5 ngx-bootstrap@22 file-saver @types/file-saver jszip date-fns @ngx-translate/core@16 @ngx-translate/http-loader@16`
 
 ## styles.css
 
@@ -112,28 +112,28 @@ You can switch older Angular programs to standalone with `ng generate @angular/c
 
 There are 3 options to refactor your code:
 
-- `ng generate @angular/core:standalone-components-migration`
-- `ng generate @angular/core:standalone-directives-migration`
-- `ng generate @angular/core:standalone-pipes-migration`
+* `ng generate @angular/core:standalone-components-migration`
+* `ng generate @angular/core:standalone-directives-migration`
+* `ng generate @angular/core:standalone-pipes-migration`
 
 IF YOU WANT YOUR APP CHANGED TO STANDALONE COMPONENTS YOU MUST RUN THESE MIGRATION COMMANDS WITH ANGULAR VERSION 17.x BEFORE MOVING TO THE NEXT VERSION OF ANGULAR. OTHERWISE YOU WILL GET ERROR IN LATER VERSION AND YOU HAVE TO DO ALL MANUALY!
 
 ## Angular 19.0.0 refactoring tools
 
-- `ng g @angular/core:signal-input-migration`
-- `ng g @angular/core:signal-queries-migration`
-- `ng g @angular/core:output-migration`
+* `ng g @angular/core:signal-input-migration`
+* `ng g @angular/core:signal-queries-migration`
+* `ng g @angular/core:output-migration`
 
 [Update to Angular 20](https://update.angular.io/)
 
-## Updating to latest Angular 21
+## Updating to latest Angular 22
 
-This app is now on Angular 21. Before starting an update, always commit first any valid open changes
+This app is now on Angular 22. Before starting an update, always commit first any valid open changes
 
-Note: `ngx-bootstrap@21.2.0` currently targets Angular 21.x. Upgrading Angular beyond 21 can cause runtime DI errors unless `ngx-bootstrap` adds support for that Angular version.
+Note: use `ngx-bootstrap@22.x` with Angular 22.x.
 
-update to latest Angular 21:
-`ng update @angular/cli@21 @angular/core@21`
+update to latest Angular 22:
+`ng update @angular/cli@22 @angular/core@22`
 
 ## npm outdated
 
