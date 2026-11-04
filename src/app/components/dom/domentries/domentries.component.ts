@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Component, inject, OnInit, TemplateRef, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, OnInit, TemplateRef, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
@@ -15,7 +15,7 @@ import { CurrencyPipe } from '@angular/common';
   selector: 'app-domentries',
   templateUrl: './domentries.component.html',
   styleUrls: ['./domentries.component.css'],
-  changeDetection: ChangeDetectionStrategy.Eager,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CurrencyPipe, TranslateModule],
 })
 export class DomEntriesComponent implements OnInit {
@@ -23,8 +23,9 @@ export class DomEntriesComponent implements OnInit {
   domService = inject(DomService);
   modalService = inject(BsModalService);
   ts = inject(TranslateService);
+  cdr = inject(ChangeDetectorRef);
 
-  domEntries!: DomEntry[];
+  domEntries: DomEntry[] = [];
   selectedDomEntry!: DomEntry;
 
   localStorageItems!: string[];
@@ -32,7 +33,7 @@ export class DomEntriesComponent implements OnInit {
 
   loaded = false;
   entryCount!: number;
-  totalAmount!: number;
+  totalAmount: number = 0;
 
   ngOnInit() {
     this.domService.stateClear.subscribe((clear) => {
@@ -49,6 +50,9 @@ export class DomEntriesComponent implements OnInit {
         };
       }
     });
+    this.domService.entriesUpdated.subscribe(() => {
+      this.loadEntriesData();
+    });
     this.loadEntriesData();
   }
 
@@ -64,13 +68,14 @@ export class DomEntriesComponent implements OnInit {
         this.entryCount = this.domEntries.length;
 
         for (let index = 0; index < this.domEntries.length; index++) {
-          const dummyNotProvided = (Date.now() + index * 2).toString(); // 'NOTPROVIDED';
+          const dummyNotProvided = (Date.now() + index * 2).toString();
           this.domEntries[index].endToEndReference = dummyNotProvided;
           this.totalAmount += this.domEntries[index].amount;
         }
         console.log(this.domEntries);
         console.log(this.totalAmount);
       }
+      this.cdr.markForCheck();
     });
   }
 
@@ -125,9 +130,9 @@ export class DomEntriesComponent implements OnInit {
   }
 
   onSelect(domEntry: DomEntry) {
-    this.loadEntriesData();
     this.domService.setFormDomEntry(domEntry);
     this.selectedDomEntry = domEntry;
+    this.cdr.markForCheck();
   }
 
   deleteThisModal(template: TemplateRef<any>, domEntry: DomEntry) {

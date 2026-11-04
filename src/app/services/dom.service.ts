@@ -23,6 +23,9 @@ export class DomService {
   private stateSource = new BehaviorSubject<boolean>(true);
   stateClear = this.stateSource.asObservable();
 
+  private entriesUpdatedSource = new BehaviorSubject<void>(undefined);
+  entriesUpdated = this.entriesUpdatedSource.asObservable();
+
   constructor() {
     this.domEntries = [];
   }
@@ -54,6 +57,7 @@ export class DomService {
       'cddEntries_Template',
       JSON.stringify(this.domEntries)
     );
+    this.entriesUpdatedSource.next();
   }
 
   updateDomEntry(domEntry: DomEntry) {
@@ -69,6 +73,7 @@ export class DomService {
       'cddEntries_Template',
       JSON.stringify(this.domEntries)
     );
+    this.entriesUpdatedSource.next();
   }
 
   deleteDomEntry(domEntry: DomEntry) {
@@ -83,11 +88,13 @@ export class DomService {
       'cddEntries_Template',
       JSON.stringify(this.domEntries)
     );
+    this.entriesUpdatedSource.next();
   }
 
   deleteAllDomEntries() {
     // Delete from local storage
     localStorage.removeItem('cddEntries_Template');
+    this.entriesUpdatedSource.next();
     this.clearState();
   }
 
