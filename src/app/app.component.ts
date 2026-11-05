@@ -7,7 +7,7 @@ import { DomEntryComponent } from './components/dom/domentry/domentry.component'
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  changeDetection: ChangeDetectionStrategy.Eager,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [NavbarComponent, DomEntryComponent],
 })
 export class AppComponent implements OnInit {

@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Component, inject, OnInit, TemplateRef, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, inject, OnInit, TemplateRef, ChangeDetectionStrategy, ChangeDetectorRef, DestroyRef } from '@angular/core';
 
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { DomService } from '../../../services/dom.service';
 import { DomEntry } from '../../../models/domEntry';
@@ -24,6 +25,7 @@ export class DomEntriesComponent implements OnInit {
   modalService = inject(BsModalService);
   ts = inject(TranslateService);
   cdr = inject(ChangeDetectorRef);
+  destroyRef = inject(DestroyRef);
 
   domEntries: DomEntry[] = [];
   selectedDomEntry!: DomEntry;
@@ -36,7 +38,9 @@ export class DomEntriesComponent implements OnInit {
   totalAmount: number = 0;
 
   ngOnInit() {
-    this.domService.stateClear.subscribe((clear) => {
+    this.domService.stateClear.pipe(
+      takeUntilDestroyed(this.destroyRef)
+    ).subscribe((clear) => {
       if (clear) {
         this.selectedDomEntry = {
           id: '',
@@ -50,7 +54,9 @@ export class DomEntriesComponent implements OnInit {
         };
       }
     });
-    this.domService.entriesUpdated.subscribe(() => {
+    this.domService.entriesUpdated.pipe(
+      takeUntilDestroyed(this.destroyRef)
+    ).subscribe(() => {
       this.loadEntriesData();
     });
     this.loadEntriesData();
@@ -70,7 +76,8 @@ export class DomEntriesComponent implements OnInit {
         for (let index = 0; index < this.domEntries.length; index++) {
           const dummyNotProvided = (Date.now() + index * 2).toString();
           this.domEntries[index].endToEndReference = dummyNotProvided;
-          this.totalAmount += this.domEntries[index].amount;
+          // Ensure amount is a number (fix for string concatenation bug)
+          this.totalAmount += Number(this.domEntries[index].amount) || 0;
         }
         console.log(this.domEntries);
         console.log(this.totalAmount);

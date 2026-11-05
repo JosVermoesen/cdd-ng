@@ -4,7 +4,7 @@ export interface DomEntry {
   endToEndReference: string;
   communication: string;
   mandateId: string;
-  mandateStartDate: any;
+  mandateStartDate: string | null;
   clientName: string;
   clientIban: string;
   dummy?: number;

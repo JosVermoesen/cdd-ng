@@ -17,7 +17,7 @@ import { TranslateModule } from '@ngx-translate/core';
   selector: 'app-domsave',
   templateUrl: './domsave.component.html',
   styleUrls: ['./domsave.component.css'],
-  changeDetection: ChangeDetectionStrategy.Eager,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ReactiveFormsModule, TranslateModule],
 })
 export class DomSaveComponent implements OnInit {
@@ -49,7 +49,17 @@ export class DomSaveComponent implements OnInit {
       this.locationReload = true;
       const itemName =
         this.domSaveForm.value.groupType + this.domSaveForm.value.name;
-      localStorage.setItem(itemName, JSON.stringify(this.domJson));
+      const saveName = this.domSaveForm.value.name;
+
+      let entriesToSave = this.domJson;
+
+      if (this.domSaveForm.value.groupType === 'cddClient_') {
+        entriesToSave = this.domJson.filter(
+          (entry) => entry.clientName === saveName
+        );
+      }
+
+      localStorage.setItem(itemName, JSON.stringify(entriesToSave));
 
       if (this.domSaveForm.value.clearEntriesAfterSaving === true) {
         localStorage.removeItem('cddEntries_Template');

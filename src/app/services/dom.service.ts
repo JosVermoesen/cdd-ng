@@ -36,6 +36,11 @@ export class DomService {
       this.domEntries = [];
     } else {
       this.domEntries = JSON.parse(cddEntriesTemplate);
+      // Ensure all amounts are numbers (fix for localStorage string issue)
+      this.domEntries = this.domEntries.map(entry => ({
+        ...entry,
+        amount: Number(entry.amount) || 0
+      }));
     }
 
     return of(

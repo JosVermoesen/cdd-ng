@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, viewChild, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, OnInit, viewChild, ChangeDetectionStrategy, DestroyRef } from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
@@ -6,6 +6,7 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { TranslateService, TranslateModule } from '@ngx-translate/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { TabsetComponent, TabDirective } from 'ngx-bootstrap/tabs';
@@ -30,7 +31,7 @@ import { DomToolsComponent } from '../domtools/domtools.component';
   selector: 'app-domentry',
   templateUrl: './domentry.component.html',
   styleUrls: ['./domentry.component.css'],
-  changeDetection: ChangeDetectionStrategy.Eager,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     TabsetComponent,
     TabDirective,
@@ -48,6 +49,7 @@ export class DomEntryComponent implements OnInit {
   domService = inject(DomService);
   fb = inject(FormBuilder);
   ts = inject(TranslateService);
+  destroyRef = inject(DestroyRef);
 
   cddVersion = constantVariables.version;
   warning!: string;
@@ -82,17 +84,24 @@ export class DomEntryComponent implements OnInit {
     if (templateVal) {
       this.domJson = JSON.parse(templateVal);
     }
-    this.ts.get('CDDENTRY.UnLockButtonLabel').subscribe((res: string) => {
+    this.ts.get('CDDENTRY.UnLockButtonLabel').pipe(
+      takeUntilDestroyed(this.destroyRef)
+    ).subscribe((res: string) => {
       this.lockLabel = res;
     });
 
-    // Subscribe to the selectedLog observable
-    this.domService.selectedDomEntry.subscribe((entry: DomEntry) => {
+    this.domService.selectedDomEntry.pipe(
+      takeUntilDestroyed(this.destroyRef)
+    ).subscribe((entry: DomEntry) => {
       if (entry.id !== null) {
-        this.ts.get('CDDENTRY.TabEditLabel').subscribe((res: string) => {
+        this.ts.get('CDDENTRY.TabEditLabel').pipe(
+          takeUntilDestroyed(this.destroyRef)
+        ).subscribe((res: string) => {
           this.tabAddOrEdit = res;
         });
-        this.ts.get('CDDENTRY.UpdateButtonLabel').subscribe((res: string) => {
+        this.ts.get('CDDENTRY.UpdateButtonLabel').pipe(
+          takeUntilDestroyed(this.destroyRef)
+        ).subscribe((res: string) => {
           this.btnAddOrUpdate = res;
         });
 

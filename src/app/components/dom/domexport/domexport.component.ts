@@ -27,7 +27,7 @@ import { TranslateModule } from '@ngx-translate/core';
   selector: 'app-domexport',
   templateUrl: './domexport.component.html',
   styleUrls: ['./domexport.component.css'],
-  changeDetection: ChangeDetectionStrategy.Eager,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     ReactiveFormsModule,
     BsDatepickerInputDirective,
@@ -229,7 +229,7 @@ export class DomExportComponent implements OnInit {
           this.domEntries[this.cCount].endToEndReference,
           this.domEntries[this.cCount].amount + '',
           this.domEntries[this.cCount].mandateId,
-          this.domEntries[this.cCount].mandateStartDate,
+          this.domEntries[this.cCount].mandateStartDate || '',
           this.domEntries[this.cCount].clientName,
           this.domEntries[this.cCount].clientIban,
           this.domEntries[this.cCount].communication,

@@ -11,7 +11,7 @@ import { Language } from 'src/app/models/language';
   selector: 'app-language',
   templateUrl: './language.component.html',
   styleUrls: ['./language.component.css'],
-  changeDetection: ChangeDetectionStrategy.Eager,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [],
 })
 export class LanguageComponent implements OnInit {

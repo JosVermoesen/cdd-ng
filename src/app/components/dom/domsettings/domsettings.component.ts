@@ -19,7 +19,7 @@ import { format } from 'date-fns';
   selector: 'app-domsettings',
   templateUrl: './domsettings.component.html',
   styleUrls: ['./domsettings.component.css'],
-  changeDetection: ChangeDetectionStrategy.Eager,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ReactiveFormsModule, TranslateModule],
 })
 export class DomSettingsComponent implements OnInit {

@@ -19,7 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   selector: 'app-domtools',
   templateUrl: './domtools.component.html',
   styleUrls: ['./domtools.component.css'],
-  changeDetection: ChangeDetectionStrategy.Eager,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ReactiveFormsModule, JsonPipe, TranslateModule],
 })
 export class DomToolsComponent {

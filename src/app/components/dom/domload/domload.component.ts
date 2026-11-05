@@ -17,7 +17,7 @@ import { TranslateModule } from '@ngx-translate/core';
   selector: 'app-domload',
   templateUrl: './domload.component.html',
   styleUrls: ['./domload.component.css'],
-  changeDetection: ChangeDetectionStrategy.Eager,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ReactiveFormsModule, TranslateModule],
 })
 export class DomLoadComponent implements OnInit {
@@ -27,7 +27,6 @@ export class DomLoadComponent implements OnInit {
   title!: string;
   closeBtnName!: string;
   locationReload = false;
-  iCount!: number;
 
   domLoadForm!: FormGroup;
   domJson!: DomEntry[];
@@ -82,30 +81,33 @@ export class DomLoadComponent implements OnInit {
         const itemVal = localStorage.getItem(itemName);
         if (itemVal) {
           this.domJson = JSON.parse(itemVal);
+        } else {
+          this.domJson = [];
         }
         localStorage.setItem(
           'cddEntries_Template',
           JSON.stringify(this.domJson)
         );
       } else {
+        // Initialize domJson with existing entries or empty array
         if (areThereEntries) {
           const templateVal = localStorage.getItem('cddEntries_Template');
           if (templateVal) {
             this.domJson = JSON.parse(templateVal);
           }
+        } else {
+          this.domJson = [];
         }
 
         const itemVal2 = localStorage.getItem(itemName);
-        const tmpJson: DomEntry[] = JSON.parse(itemVal2 as string);
+        if (itemVal2) {
+          const tmpJson: DomEntry[] = JSON.parse(itemVal2);
 
-        if (areThereEntries === null) {
-          this.domJson = tmpJson;
-        } else {
-          this.iCount = 0;
-          while (this.iCount < tmpJson.length) {
-            const tmpEntry: DomEntry = tmpJson[this.iCount];
-            this.domJson.unshift(tmpEntry);
-            this.iCount++;
+          // Add loaded entries to existing entries
+          if (tmpJson && tmpJson.length > 0) {
+            for (const entry of tmpJson) {
+              this.domJson.unshift(entry);
+            }
           }
         }
 
